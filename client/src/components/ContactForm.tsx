@@ -215,7 +215,7 @@ export default function ContactForm() {
                       )}
                     />
 
-                    <Button type="submit" className="w-full" disabled={isSubmitting}>
+                    <Button type="submit" className="w-full bg-accent hover:bg-accent/90" disabled={isSubmitting}>
                       {isSubmitting ? "Submitting..." : "Request Free Consultation"}
                     </Button>
 

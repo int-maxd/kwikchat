@@ -15,38 +15,38 @@
   --border: 20 5.9% 90%;
   --input: 20 5.9% 90%;
   
-  /* Primary blue */
-  --primary: 214 90% 52%;
+  /* Primary kwik blue color */
+  --primary: 193 73% 35%;
   --primary-foreground: 0 0% 100%;
   
   /* Secondary light gray */
   --secondary: 60 4.8% 95.9%;
   --secondary-foreground: 24 9.8% 10%;
   
-  /* Accent indigo */
-  --accent: 246 94% 67%;
+  /* Accent green from GROUP */
+  --accent: 82 55% 55%;
   --accent-foreground: 0 0% 100%;
   
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 60 9.1% 97.8%;
-  --ring: 214 90% 52%;
+  --ring: 193 73% 35%;
   --radius: 0.5rem;
 
   /* Sidebar colors */
   --sidebar-background: 0 0% 100%;
   --sidebar-foreground: 20 14.3% 4.1%;
-  --sidebar-primary: 214 90% 52%;
+  --sidebar-primary: 193 73% 35%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 246 94% 67%;
+  --sidebar-accent: 82 55% 55%;
   --sidebar-accent-foreground: 0 0% 100%;
   --sidebar-border: 20 5.9% 90%;
-  --sidebar-ring: 214 90% 52%;
+  --sidebar-ring: 193 73% 35%;
 
   /* Chart colors */
-  --chart-1: 214 90% 52%;
-  --chart-2: 246 94% 67%;
-  --chart-3: 142 76% 46%;
-  --chart-4: 31 94% 60%;
+  --chart-1: 193 73% 35%;
+  --chart-2: 82 55% 55%;
+  --chart-3: 193 53% 55%;
+  --chart-4: 82 75% 45%;
   --chart-5: 0 84% 60%;
 }
 

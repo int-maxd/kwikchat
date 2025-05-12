@@ -13,7 +13,10 @@ export default function Footer() {
                   <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
                 </svg>
               </div>
-              <span className="text-2xl font-bold text-white">KwikFlow</span>
+              <div className="flex items-baseline">
+                <span className="text-2xl font-semibold text-white" style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "-0.025em" }}>kwik</span>
+                <span className="text-2xl font-bold text-accent" style={{ fontFamily: "'Inter', sans-serif", fontWeight: "800", letterSpacing: "-0.025em" }}>FLOW</span>
+              </div>
             </div>
             <p className="text-gray-300 text-base">
               Automating business processes to save you time, reduce errors, and boost productivity.

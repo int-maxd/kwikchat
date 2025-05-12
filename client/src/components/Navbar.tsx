@@ -15,12 +15,15 @@ export default function Navbar() {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center">
-              <div className="h-8 w-8 rounded-md bg-gradient-to-r from-primary to-accent flex items-center justify-center mr-2">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <div className="h-9 w-9 rounded-md bg-gradient-to-r from-primary to-accent flex items-center justify-center mr-2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
                 </svg>
               </div>
-              <span className="text-xl font-bold text-gray-800">KwikFlow</span>
+              <div className="flex items-baseline">
+                <span className="text-xl font-semibold text-primary" style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "-0.025em" }}>kwik</span>
+                <span className="text-xl font-bold text-accent" style={{ fontFamily: "'Inter', sans-serif", fontWeight: "800", letterSpacing: "-0.025em" }}>FLOW</span>
+              </div>
             </Link>
           </div>
           <div className="hidden md:ml-6 md:flex md:items-center md:space-x-4">
@@ -29,7 +32,7 @@ export default function Navbar() {
             <a href="#process" className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-primary hover:bg-gray-50 transition">Process</a>
             <a href="#testimonials" className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-primary hover:bg-gray-50 transition">Testimonials</a>
             <a href="#contact">
-              <Button className="ml-3" variant="default">Book Consultation</Button>
+              <Button className="ml-3 bg-accent hover:bg-accent/90" variant="default">Book Consultation</Button>
             </a>
           </div>
           <div className="flex items-center md:hidden">
