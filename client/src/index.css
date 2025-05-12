@@ -77,9 +77,13 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4rem; /* Add padding for fixed header */
+  }
+
   body {
     @apply font-sans antialiased bg-background text-foreground;
-    scroll-behavior: smooth;
   }
 }
 
