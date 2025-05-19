@@ -10,10 +10,10 @@ export default function Hero() {
               <span className="block animate-fadeIn">Automate Your Business</span>
               <div className="animate-fadeIn" style={{ animationDelay: '200ms' }}>
                 <span className="block font-semibold text-primary text-5xl sm:text-6xl md:text-7xl" style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "-0.025em" }}>Work</span>
-                <span className="block font-semibold text-primary text-5xl sm:text-6xl md:text-7xl" style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "-0.025em" }}>Smarter</span>
-                <span className="block font-semibold text-primary text-5xl sm:text-6xl md:text-7xl" style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "-0.025em" }}>With kwik</span>
+                <span className="block font-semibold text-primary text-5xl sm:text-6xl md:text-7xl" style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "-0.025em" }}>Smarter with</span>
+                <span className="block font-semibold text-primary text-5xl sm:text-6xl md:text-7xl" style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "-0.025em" }}>kwik</span>
               </div>
-              <span className="block font-bold text-accent text-6xl sm:text-7xl md:text-8xl animate-fadeIn" style={{ animationDelay: '400ms', fontFamily: "'Inter', sans-serif", fontWeight: "800", letterSpacing: "-0.025em" }}>FLOW</span>
+              <span className="font-bold text-accent text-6xl sm:text-7xl md:text-8xl animate-fadeIn" style={{ animationDelay: '400ms', fontFamily: "'Inter', sans-serif", fontWeight: "800", letterSpacing: "-0.025em" }}>FLOW</span>
             </h1>
             <p className="mt-6 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl animate-fadeIn" style={{ animationDelay: '600ms' }}>
               We automate your business processes by connecting your favorite tools and systems. Book a free consultation today to see what we can automate for you.

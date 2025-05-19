@@ -7,13 +7,17 @@ const mailgun = new Mailgun(FormData);
 
 // Create a function to get a fresh client each time with latest credentials
 function getMailgunClient() {
-  console.log("Creating Mailgun client with API key:", 
-    process.env.MAILGUN_API_KEY ? `${process.env.MAILGUN_API_KEY.substring(0, 4)}...` : "missing");
-  
+  console.log(
+    "Creating Mailgun client with API key:",
+    process.env.MAILGUN_API_KEY
+      ? `${process.env.MAILGUN_API_KEY.substring(0, 4)}...`
+      : "missing"
+  );
+
   return mailgun.client({
     username: "api",
     key: process.env.MAILGUN_API_KEY || "",
-    url: "https://api.eu.mailgun.net", // Use EU endpoint for EU domains
+    url: "https://api.eu.mailgun.net" // Use EU endpoint for EU domains
   });
 }
 
@@ -26,7 +30,7 @@ function getMailgunDomain() {
  * Send a notification email about a new consultation request
  */
 export async function sendConsultationRequestEmail(
-  request: ConsultationRequest,
+  request: ConsultationRequest
 ) {
   if (!process.env.MAILGUN_API_KEY || !process.env.MAILGUN_DOMAIN) {
     console.error("Mailgun credentials not found in environment variables");
@@ -45,7 +49,7 @@ export async function sendConsultationRequestEmail(
       <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>New KwikFlow Consultation Request</title>
+        <title>New kwikFlow Consultation Request</title>
         <style>
           body {
             font-family: 'Arial', sans-serif;
@@ -122,31 +126,45 @@ export async function sendConsultationRequestEmail(
             <span class="label">Client Information</span>
             <p class="value"><strong>Name:</strong> ${request.fullName}</p>
             <p class="value"><strong>Email:</strong> ${request.email}</p>
-            ${request.company ? `<p class="value"><strong>Company:</strong> ${request.company}</p>` : ""}
-            ${request.phone ? `<p class="value"><strong>Phone:</strong> ${request.phone}</p>` : ""}
+            ${
+              request.company
+                ? `<p class="value"><strong>Company:</strong> ${request.company}</p>`
+                : ""
+            }
+            ${
+              request.phone
+                ? `<p class="value"><strong>Phone:</strong> ${request.phone}</p>`
+                : ""
+            }
           </div>
           
           <div class="section">
             <span class="label">Project Details</span>
-            ${request.systems ? `<p class="value"><strong>Systems in use:</strong> ${request.systems}</p>` : ""}
+            ${
+              request.systems
+                ? `<p class="value"><strong>Systems in use:</strong> ${request.systems}</p>`
+                : ""
+            }
             <p class="value"><strong>Description:</strong></p>
             <p class="value">${request.message}</p>
           </div>
           
           <div class="section">
             <span class="label">Additional Information</span>
-            <p class="value"><strong>Date Submitted:</strong> ${new Date(request.createdAt).toLocaleString('en-ZA', { 
-              year: 'numeric', 
-              month: 'long', 
-              day: 'numeric',
-              hour: '2-digit',
-              minute: '2-digit',
-              timeZone: 'Africa/Johannesburg'
+            <p class="value"><strong>Date Submitted:</strong> ${new Date(
+              request.createdAt
+            ).toLocaleString("en-ZA", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+              timeZone: "Africa/Johannesburg"
             })}</p>
           </div>
           
           <div class="footer">
-            <p>© ${new Date().getFullYear()} KwikFlow. All rights reserved.</p>
+            <p>© ${new Date().getFullYear()} kwikFlow. All rights reserved.</p>
             <p>105 Club Avenue, Waterkloof Heights, Pretoria, 0181, South Africa</p>
           </div>
         </div>
@@ -156,15 +174,17 @@ export async function sendConsultationRequestEmail(
 
     // Set up email data
     const data = {
-      from: `KwikFlow <noreply@${domain}>`,
+      from: `kwikFlow <noreply@${domain}>`,
       to: "hello@kwikflow.co.za", // Change this to your notification email
       subject: `New Consultation Request from ${request.fullName}`,
       html: emailContent,
-      "h:Reply-To": request.email,
+      "h:Reply-To": request.email
     };
 
-    console.log(`Sending notification email to hello@kwikflow.co.za with domain: ${domain}`);
-    
+    console.log(
+      `Sending notification email to hello@kwikflow.co.za with domain: ${domain}`
+    );
+
     // Send the email
     const response = await mg.messages.create(domain, data);
     console.log("Email sent successfully:", response);
@@ -179,7 +199,7 @@ export async function sendConsultationRequestEmail(
  * Send a confirmation email to the customer
  */
 export async function sendCustomerConfirmationEmail(
-  request: ConsultationRequest,
+  request: ConsultationRequest
 ) {
   if (!process.env.MAILGUN_API_KEY || !process.env.MAILGUN_DOMAIN) {
     console.error("Mailgun credentials not found in environment variables");
@@ -190,7 +210,7 @@ export async function sendCustomerConfirmationEmail(
     // Get fresh client and domain
     const mg = getMailgunClient();
     const domain = getMailgunDomain();
-    
+
     // Format the email content with styled HTML
     const emailContent = `
       <!DOCTYPE html>
@@ -198,7 +218,7 @@ export async function sendCustomerConfirmationEmail(
       <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Thank You for Your KwikFlow Consultation Request</title>
+        <title>Thank You for Your kwikFlow Consultation Request</title>
         <style>
           body {
             font-family: 'Arial', sans-serif;
@@ -309,7 +329,7 @@ export async function sendCustomerConfirmationEmail(
           
           <div class="thank-you-message">
             <p>Dear ${request.fullName},</p>
-            <p>We've received your consultation request and appreciate your interest in KwikFlow's automation services.</p>
+            <p>We've received your consultation request and appreciate your interest in kwikFlow's automation services.</p>
           </div>
           
           <div class="next-steps">
@@ -320,8 +340,16 @@ export async function sendCustomerConfirmationEmail(
           <div class="section">
             <span class="label">Your Request Details</span>
             <p class="value"><strong>Name:</strong> ${request.fullName}</p>
-            ${request.company ? `<p class="value"><strong>Company:</strong> ${request.company}</p>` : ""}
-            ${request.systems ? `<p class="value"><strong>Systems you're using:</strong> ${request.systems}</p>` : ""}
+            ${
+              request.company
+                ? `<p class="value"><strong>Company:</strong> ${request.company}</p>`
+                : ""
+            }
+            ${
+              request.systems
+                ? `<p class="value"><strong>Systems you're using:</strong> ${request.systems}</p>`
+                : ""
+            }
             <p class="value"><strong>What you'd like to automate:</strong></p>
             <p class="value">${request.message}</p>
           </div>
@@ -333,12 +361,12 @@ export async function sendCustomerConfirmationEmail(
           </div>
           
           <div class="signature">
-            <p>We look forward to showing you how KwikFlow can streamline your business processes!</p>
-            <p>Best regards,<br>The KwikFlow Team</p>
+            <p>We look forward to showing you how kwikFlow can streamline your business processes!</p>
+            <p>Best regards,<br>The kwikFlow Team</p>
           </div>
           
           <div class="footer">
-            <p>© ${new Date().getFullYear()} KwikFlow. All rights reserved.</p>
+            <p>© ${new Date().getFullYear()} kwikFlow. All rights reserved.</p>
             <p>105 Club Avenue, Waterkloof Heights, Pretoria, 0181, South Africa</p>
           </div>
         </div>
@@ -348,14 +376,16 @@ export async function sendCustomerConfirmationEmail(
 
     // Set up email data
     const data = {
-      from: `KwikFlow <noreply@${domain}>`,
+      from: `kwikFlow <noreply@${domain}>`,
       to: request.email,
       subject: "Thank You for Your Consultation Request",
-      html: emailContent,
+      html: emailContent
     };
 
-    console.log(`Sending confirmation email to ${request.email} with domain: ${domain}`);
-    
+    console.log(
+      `Sending confirmation email to ${request.email} with domain: ${domain}`
+    );
+
     // Send the email
     const response = await mg.messages.create(domain, data);
     console.log("Confirmation email sent successfully:", response);
