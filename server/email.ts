@@ -64,26 +64,20 @@ export async function sendConsultationRequestEmail(
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
           }
           .header {
-            background: linear-gradient(to right, #0080ff, #50c878);
+            background: #f9f9f9;
             padding: 15px 20px;
             border-radius: 8px 8px 0 0;
             margin: -20px -20px 20px;
             text-align: center;
           }
           .logo {
-            color: #ffffff;
-            font-size: 28px;
+            font-size: 32px;
             font-weight: bold;
             margin: 0;
-          }
-          .logo .kwik {
-            font-weight: 500;
-          }
-          .logo .flow {
-            font-weight: 800;
+            letter-spacing: -0.025em;
           }
           h1 {
-            color: #0080ff;
+            color: #152434;
             margin-top: 0;
             margin-bottom: 20px;
             font-size: 24px;
@@ -93,10 +87,10 @@ export async function sendConsultationRequestEmail(
             padding: 15px;
             margin-bottom: 20px;
             border-radius: 5px;
-            border-left: 4px solid #50c878;
+            border-left: 4px solid #A9D65C;
           }
           .label {
-            color: #0080ff;
+            color: #4A96AD;
             font-weight: bold;
             margin-bottom: 5px;
             display: block;
@@ -118,7 +112,7 @@ export async function sendConsultationRequestEmail(
         <div class="container">
           <div class="header">
             <div class="logo">
-              <span class="kwik">kwik</span><span class="flow" style="color: #50c878;">FLOW</span>
+              <span style="color: #4A96AD; font-weight: 500;">kwik</span><span style="color: #A9D65C; font-weight: 800;">FLOW</span>
             </div>
           </div>
           
@@ -223,26 +217,20 @@ export async function sendCustomerConfirmationEmail(
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
           }
           .header {
-            background: linear-gradient(to right, #0080ff, #50c878);
+            background: #f9f9f9;
             padding: 15px 20px;
             border-radius: 8px 8px 0 0;
             margin: -20px -20px 20px;
             text-align: center;
           }
           .logo {
-            color: #ffffff;
-            font-size: 28px;
+            font-size: 32px;
             font-weight: bold;
             margin: 0;
-          }
-          .logo .kwik {
-            font-weight: 500;
-          }
-          .logo .flow {
-            font-weight: 800;
+            letter-spacing: -0.025em;
           }
           h1 {
-            color: #0080ff;
+            color: #152434;
             margin-top: 0;
             margin-bottom: 20px;
             font-size: 24px;
@@ -253,17 +241,17 @@ export async function sendCustomerConfirmationEmail(
             padding: 15px;
             border-radius: 5px;
             margin-bottom: 20px;
-            border-left: 4px solid #0080ff;
+            border-left: 4px solid #4A96AD;
           }
           .section {
             background: #f5f7fa;
             padding: 15px;
             margin-bottom: 20px;
             border-radius: 5px;
-            border-left: 4px solid #50c878;
+            border-left: 4px solid #A9D65C;
           }
           .label {
-            color: #0080ff;
+            color: #4A96AD;
             font-weight: bold;
             margin-bottom: 5px;
             display: block;
@@ -276,7 +264,7 @@ export async function sendCustomerConfirmationEmail(
             padding: 15px;
             border-radius: 5px;
             margin-bottom: 20px;
-            border-left: 4px solid #50c878;
+            border-left: 4px solid #A9D65C;
           }
           .contact-info {
             margin-top: 20px;
@@ -286,7 +274,7 @@ export async function sendCustomerConfirmationEmail(
           }
           .button {
             display: inline-block;
-            background: #50c878;
+            background: #A9D65C;
             color: white;
             padding: 10px 20px;
             text-decoration: none;
@@ -313,7 +301,7 @@ export async function sendCustomerConfirmationEmail(
         <div class="container">
           <div class="header">
             <div class="logo">
-              <span class="kwik">kwik</span><span class="flow" style="color: #50c878;">FLOW</span>
+              <span style="color: #4A96AD; font-weight: 500;">kwik</span><span style="color: #A9D65C; font-weight: 800;">FLOW</span>
             </div>
           </div>
           
