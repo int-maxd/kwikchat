@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="32" height="32" rx="4" fill="#FFFFFF"/>
-  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="#A9D65C" stroke="#4A96AD" stroke-width="1"/>
-  <text x="7" y="13" font-family="Arial" font-weight="500" font-size="7" fill="#4A96AD">kwik</text>
-  <text x="11" y="21" font-family="Arial" font-weight="800" font-size="7" fill="#A9D65C">FLOW</text>
+  <g transform="translate(4, 4)">
+    <path d="M12 2L2 14h8l-1 8 10-12h-8l1-8z" fill="#A9D65C" stroke="#4A96AD" stroke-width="1"/>
+    <text x="3" y="12" font-family="Arial" font-size="5" font-weight="bold" fill="#4A96AD">kwik</text>
+    <text x="2" y="19" font-family="Arial" font-size="5" font-weight="bold" fill="#A9D65C">FLOW</text>
+  </g>
 </svg>
