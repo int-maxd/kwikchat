@@ -17,7 +17,7 @@ const services = [
       </svg>
     ),
     title: "API Integration",
-    description: "We connect your favorite business tools using their APIs, ensuring seamless data flow between systems with no manual intervention."
+    description: "We connect your favourite business tools using their APIs, ensuring seamless data flow between systems with no manual intervention."
   },
   {
     icon: (

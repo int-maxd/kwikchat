@@ -16,7 +16,7 @@ export default function Hero() {
               <span className="font-bold text-accent text-6xl sm:text-7xl md:text-8xl animate-fadeIn" style={{ animationDelay: '400ms', fontFamily: "'Inter', sans-serif", fontWeight: "800", letterSpacing: "-0.025em" }}>FLOW</span>
             </h1>
             <p className="mt-6 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl animate-fadeIn" style={{ animationDelay: '600ms' }}>
-              We automate your business processes by connecting your favorite tools and systems. Book a free consultation today to see what we can automate for you.
+              We automate your business processes by connecting your favourite tools and systems. Book a free consultation today to see what we can automate for you.
             </p>
             <div className="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0 animate-fadeIn" style={{ animationDelay: '800ms' }}>
               <div className="flex flex-col sm:flex-row gap-4 sm:justify-center lg:justify-start">
