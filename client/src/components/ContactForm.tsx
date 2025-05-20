@@ -45,7 +45,7 @@ export default function ContactForm() {
       
       toast({
         title: "Success!",
-        description: "Thanks for your inquiry. We'll contact you within one business day to schedule your free consultation.",
+        description: "Thanks for your enquiry. We'll contact you within one business day to schedule your free consultation.",
         variant: "default",
       });
       
@@ -175,7 +175,7 @@ export default function ContactForm() {
                         <FormItem>
                           <FormLabel>Phone</FormLabel>
                           <FormControl>
-                            <Input placeholder="(555) 123-4567" {...field} />
+                            <Input placeholder="+27 12 345 6789" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
