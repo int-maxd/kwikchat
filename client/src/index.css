@@ -113,10 +113,30 @@
   100% { transform: translateY(0); opacity: 1; }
 }
 
+@keyframes zap {
+  0% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.7; }
+}
+
+@keyframes glow {
+  0% { filter: drop-shadow(0 0 2px rgba(74, 150, 173, 0.7)); }
+  50% { filter: drop-shadow(0 0 8px rgba(74, 150, 173, 0.9)); }
+  100% { filter: drop-shadow(0 0 2px rgba(74, 150, 173, 0.7)); }
+}
+
 .animate-fadeIn {
   animation: fadeIn 0.5s ease-out;
 }
 
 .animate-slideUp {
   animation: slideUp 0.5s ease-out;
+}
+
+.animate-zap {
+  animation: zap 1.5s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 1.5s ease-in-out infinite;
 }
