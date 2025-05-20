@@ -1,22 +1,22 @@
-const testimonials = [
-  {
-    quote: "kwikFlow automated our entire client onboarding process. What used to take us 2 hours now happens automatically in minutes. Game changer!",
-    name: "Sarah Kim",
-    title: "Operations Director, CloudTech Solutions",
-    initials: "SK"
-  },
-  {
-    quote: "The team at kwikFlow connected our Xero, Trello, and CRM systems. Now data flows automatically between them. No more double entry!",
-    name: "James Rodriguez",
-    title: "Founder, Bright Horizons Consulting",
-    initials: "JR"
-  },
-  {
-    quote: "I was skeptical at first, but after the free consultation, I was convinced. kwikFlow has saved my team countless hours of tedious work.",
-    name: "Amelia Peterson",
-    title: "CEO, Green Valley Landscaping",
-    initials: "AP"
-  }
+const testimonials:any[] = [
+  // {
+  //   quote: "kwikFlow automated our entire client onboarding process. What used to take us 2 hours now happens automatically in minutes. Game changer!",
+  //   name: "Sarah Kim",
+  //   title: "Operations Director, CloudTech Solutions",
+  //   initials: "SK"
+  // },
+  // {
+  //   quote: "The team at kwikFlow connected our Xero, Trello, and CRM systems. Now data flows automatically between them. No more double entry!",
+  //   name: "James Rodriguez",
+  //   title: "Founder, Bright Horizons Consulting",
+  //   initials: "JR"
+  // },
+  // {
+  //   quote: "I was skeptical at first, but after the free consultation, I was convinced. kwikFlow has saved my team countless hours of tedious work.",
+  //   name: "Amelia Peterson",
+  //   title: "CEO, Green Valley Landscaping",
+  //   initials: "AP"
+  // }
 ];
 
 export default function Testimonials() {

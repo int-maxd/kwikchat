@@ -5,7 +5,7 @@ const faqs = [
   },
   {
     question: "How much does automation typically cost?",
-    answer: "The cost varies depending on the complexity of the automation. Simple workflows might start at $500, while more complex enterprise solutions can range from $2,000-$10,000+. We provide detailed quotes after the free consultation."
+    answer: "The cost varies depending on the complexity of the automation. Simple workflows might start at R500, while more complex enterprise solutions can range from R3,000-R10,000+. We provide detailed quotes after the free consultation."
   },
   {
     question: "How long does it take to implement an automation solution?",
