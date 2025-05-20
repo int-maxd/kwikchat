@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Lightning bolt shape -->
+  <path 
+    d="M60 5L15 65h35L40 115 105 55H65L70 5z" 
+    fill="#A9D65C" 
+    stroke="#4A96AD" 
+    stroke-width="3"
+    stroke-linejoin="round"
+  />
+</svg>
