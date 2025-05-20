@@ -8,7 +8,7 @@ const services = [
       </svg>
     ),
     title: "Workflow Automation",
-    description: "We build custom workflows that connect your business apps, automating repetitive tasks and processes across your organization."
+    description: "We build custom workflows that connect your business apps, automating repetitive tasks and processes across your organisation."
   },
   {
     icon: (
@@ -25,8 +25,8 @@ const services = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
       </svg>
     ),
-    title: "Process Optimization",
-    description: "We analyze your existing workflows and identify opportunities for automation, helping you optimize your business processes."
+    title: "Process Optimisation",
+    description: "We analyse your existing workflows and identify opportunities for automation, helping you optimise your business processes."
   },
   {
     icon: (
