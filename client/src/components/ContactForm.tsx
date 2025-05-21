@@ -6,6 +6,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { apiRequest } from '@/lib/queryClient';
 import { useToast } from '@/hooks/use-toast';
+import { trackEvent } from '@/lib/analytics';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -43,6 +44,9 @@ export default function ContactForm() {
     try {
       await apiRequest('POST', '/api/consultation-requests', data);
       
+      // Track the successful form submission in Google Analytics
+      trackEvent('form_submission', 'contact', 'consultation_request', 1);
+      
       toast({
         title: "Success!",
         description: "Thanks for your enquiry. We'll contact you within one business day to schedule your free consultation.",
@@ -51,6 +55,9 @@ export default function ContactForm() {
       
       form.reset();
     } catch (error) {
+      // Track the failed form submission in Google Analytics
+      trackEvent('form_error', 'contact', 'consultation_request', 0);
+      
       toast({
         title: "Something went wrong",
         description: "There was an error submitting your request. Please try again.",
