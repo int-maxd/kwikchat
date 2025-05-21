@@ -4,16 +4,19 @@ export default function LoadingScreen() {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
+    // Add a class to the body to prevent scrolling while loading
+    document.body.classList.add('overflow-hidden');
+    
     // Hide the loading screen after a delay
     const timer = setTimeout(() => {
       setIsVisible(false);
+      // Remove overflow-hidden when animation completes
+      document.body.classList.remove('overflow-hidden');
     }, 2400);
-
-    // Add a class to the body to prevent scrolling while loading
-    document.body.classList.add('overflow-hidden');
 
     return () => {
       clearTimeout(timer);
+      // Make sure overflow-hidden is removed when component unmounts
       document.body.classList.remove('overflow-hidden');
     };
   }, []);
