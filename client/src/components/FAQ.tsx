@@ -1,23 +1,27 @@
 const faqs = [
   {
-    question: "What kind of businesses do you work with?",
-    answer: "We work with businesses of all sizes, from solopreneurs to large enterprises. Our solutions are particularly valuable for businesses that use multiple systems and have repetitive manual processes."
+    question: "How does the tracking device work?",
+    answer: "KwikTrak uses GPS and cellular technology to pinpoint the exact location of your assets. The device connects to the cellular network independently (no smartphone needed) and transmits location data to our secure servers, which you can access through our web or mobile dashboard."
   },
   {
-    question: "How much does automation typically cost?",
-    answer: "The cost varies depending on the complexity of the automation. Simple workflows might start at R500, while more complex enterprise solutions can range from R3,000-R10,000+. We provide detailed quotes after the free consultation."
+    question: "Do I need a smartphone to use KwikTrak?",
+    answer: "No! Unlike Bluetooth trackers (like AirTags), KwikTrak has its own cellular connection and works completely independently. You can view your tracker's location from any device with internet access - smartphone, tablet, or computer."
   },
   {
-    question: "How long does it take to implement an automation solution?",
-    answer: "Simple automations can be implemented in as little as 1-2 weeks. More complex solutions typically take 3-6 weeks from start to finish. We'll provide a timeline estimate during your consultation."
+    question: "How long does the battery last?",
+    answer: "Our devices feature advanced power management and can last up to 30 days on a single charge with normal use. You'll receive low battery alerts so you always know when it's time to recharge."
   },
   {
-    question: "Do I need technical skills to use the automation?",
-    answer: "No technical skills are required. We design our solutions to be user-friendly and provide comprehensive training. Once set up, most automations run in the background with minimal maintenance."
+    question: "What is the coverage area?",
+    answer: "KwikTrak works anywhere in South Africa where there is cellular network coverage. This includes all major cities, towns, and most rural areas with cell service."
   },
   {
-    question: "What if my system doesn't have an API?",
-    answer: "While APIs make integration easier, we can often work with systems that don't have formal APIs. We can use techniques like web scraping, RPA (Robotic Process Automation), or recommend alternative systems. Let's discuss your specific situation during the consultation."
+    question: "Can I track multiple devices?",
+    answer: "Yes! You can track unlimited devices from a single dashboard. Each device costs R79/month. Perfect for fleet management, multiple assets, or family vehicles."
+  },
+  {
+    question: "What happens if the device is stolen?",
+    answer: "The device continues to transmit its location as long as it has power. You'll be able to track its movements in real-time and share this information with authorities. The device is also small and discreet, making it difficult to find."
   }
 ];
 
@@ -33,11 +37,11 @@ export default function FAQ() {
         <div className="mt-12 max-w-3xl mx-auto reveal">
           <div className="space-y-6">
             {faqs.map((faq, index) => (
-              <div key={index} className="bg-gray-50 rounded-lg p-6">
-                <dt className="text-lg font-medium text-gray-900">
+              <div key={index} className="bg-gray-50 rounded-lg p-6" data-testid={`faq-${index}`}>
+                <dt className="text-lg font-medium text-gray-900" data-testid={`text-faq-question-${index}`}>
                   {faq.question}
                 </dt>
-                <dd className="mt-2 text-base text-gray-600">
+                <dd className="mt-2 text-base text-gray-600" data-testid={`text-faq-answer-${index}`}>
                   {faq.answer}
                 </dd>
               </div>

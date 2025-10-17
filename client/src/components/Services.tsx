@@ -1,93 +1,101 @@
 import { Card, CardContent } from '@/components/ui/card';
+import deviceImage from '@assets/generated_images/Compact_GPS_tracking_device_a161b0d1.png';
 
-const services = [
+const features = [
   {
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
       </svg>
     ),
-    title: "Workflow Automation",
-    description: "We build custom workflows that connect your business apps, automating repetitive tasks and processes across your organisation."
+    title: "Real-Time GPS Tracking",
+    description: "Track your assets in real-time anywhere in South Africa with cellular coverage. View location history and movement patterns instantly."
   },
   {
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.5 3H12h1.5zm0 18H12h1.5zM12 3v18m4.5-12.75l-2.25.75m0 0l-2.25-.75M18.75 3l-2.25.75m0 0l-2.25-.75M8.25 3l2.25.75m0 0l2.25-.75M8.25 21l2.25-.75m0 0l2.25.75" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
       </svg>
     ),
-    title: "API Integration",
-    description: "We connect your favourite business tools using their APIs, ensuring seamless data flow between systems with no manual intervention."
+    title: "Geofencing Alerts",
+    description: "Create virtual boundaries and receive instant notifications when your device enters or exits designated areas."
   },
   {
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
       </svg>
     ),
-    title: "Process Optimisation",
-    description: "We analyse your existing workflows and identify opportunities for automation, helping you optimise your business processes."
+    title: "Month-Long Battery",
+    description: "Advanced power management ensures up to 30 days of continuous tracking on a single charge. Never worry about daily charging."
   },
   {
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
       </svg>
     ),
-    title: "Custom Integrations",
-    description: "For systems without ready-made integrations, we build custom solutions to ensure all your tools work together seamlessly."
+    title: "Independent Cellular",
+    description: "Built-in cellular connectivity means no need for Bluetooth pairing or smartphone apps. Works independently anywhere with cell service."
   },
   {
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
       </svg>
     ),
-    title: "Training & Support",
-    description: "We provide comprehensive training for your team and ongoing support to ensure your automated systems run smoothly."
+    title: "Secure & Reliable",
+    description: "Enterprise-grade encryption keeps your location data private and secure. Reliable tracking you can count on 24/7."
   },
   {
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
       </svg>
     ),
-    title: "Automation Consulting",
-    description: "Not sure where to start? Our experts will assess your business and recommend the best automation opportunities."
+    title: "Mobile Dashboard",
+    description: "Access your tracking dashboard from any device. View live locations, set alerts, and review history on the go."
   }
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="py-16 bg-white overflow-hidden">
+    <section id="features" className="py-16 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h2 className="text-base font-semibold text-primary tracking-wide uppercase reveal">Our Services</h2>
-          <p className="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-5xl reveal">Streamline Your Business Operations</p>
-          <p className="max-w-xl mt-5 mx-auto text-xl text-gray-500 reveal">We connect your business tools and automate repetitive tasks, saving you time and reducing errors.</p>
-        </div>
+        <div className="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+          <div className="mb-12 lg:mb-0">
+            <div className="text-left">
+              <h2 className="text-base font-semibold text-primary tracking-wide uppercase reveal">Features</h2>
+              <p className="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-5xl reveal">Advanced Tracking Technology</p>
+              <p className="max-w-xl mt-5 text-xl text-gray-500 reveal">Everything you need to track your valuable assets with confidence.</p>
+            </div>
 
-        <div className="mt-16">
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service, index) => (
-              <div key={index} className="pt-6 reveal">
-                <Card className="bg-gray-50 h-full">
-                  <CardContent className="pt-6">
-                    <div className="-mt-6">
-                      <div>
-                        <span className="inline-flex items-center justify-center p-3 bg-primary rounded-md shadow-lg">
-                          {service.icon}
-                        </span>
-                      </div>
-                      <h3 className="mt-8 text-lg font-medium text-gray-900 tracking-tight">{service.title}</h3>
-                      <p className="mt-5 text-base text-gray-500">
-                        {service.description}
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            ))}
+            <div className="mt-12 grid grid-cols-1 gap-8">
+              {features.map((feature, index) => (
+                <div key={index} className="flex reveal" data-testid={`feature-${index}`}>
+                  <div className="flex-shrink-0">
+                    <span className="inline-flex items-center justify-center p-3 bg-primary rounded-md shadow-lg">
+                      {feature.icon}
+                    </span>
+                  </div>
+                  <div className="ml-4">
+                    <h3 className="text-lg font-medium text-gray-900 tracking-tight" data-testid={`text-feature-title-${index}`}>{feature.title}</h3>
+                    <p className="mt-2 text-base text-gray-500" data-testid={`text-feature-desc-${index}`}>
+                      {feature.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <div className="relative reveal">
+            <img 
+              src={deviceImage}
+              alt="KwikTrak GPS tracking device" 
+              className="rounded-xl shadow-2xl w-full h-auto object-cover"
+              data-testid="img-tracking-device"
+            />
           </div>
         </div>
       </div>

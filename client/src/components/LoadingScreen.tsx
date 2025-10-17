@@ -4,19 +4,15 @@ export default function LoadingScreen() {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    // Add a class to the body to prevent scrolling while loading
     document.body.classList.add('overflow-hidden');
     
-    // Hide the loading screen after a delay
     const timer = setTimeout(() => {
       setIsVisible(false);
-      // Remove overflow-hidden when animation completes
       document.body.classList.remove('overflow-hidden');
     }, 2400);
 
     return () => {
       clearTimeout(timer);
-      // Make sure overflow-hidden is removed when component unmounts
       document.body.classList.remove('overflow-hidden');
     };
   }, []);
@@ -33,7 +29,7 @@ export default function LoadingScreen() {
           xmlns="http://www.w3.org/2000/svg"
         >
           <path 
-            d="M16 2L4 18h10l-2 12 14-18h-10l2-12z" 
+            d="M16 4C11.03 4 7 8.03 7 13c0 5.25 9 15 9 15s9-9.75 9-15c0-4.97-4.03-9-9-9zm0 12.25c-1.79 0-3.25-1.46-3.25-3.25s1.46-3.25 3.25-3.25 3.25 1.46 3.25 3.25-1.46 3.25-3.25 3.25z" 
             fill="#A9D65C" 
             stroke="#4A96AD" 
             strokeWidth="1.5"
@@ -60,14 +56,14 @@ export default function LoadingScreen() {
             animation: "fadeIn 0.5s ease-out 0.6s both" 
           }}
         >
-          FLOW
+          TRAK
         </span>
       </div>
       <p 
         className="mt-4 text-gray-500"
         style={{ animation: "fadeIn 0.5s ease-out 0.9s both" }}
       >
-        Loading your experience...
+        Loading your tracking experience...
       </p>
     </div>
   );

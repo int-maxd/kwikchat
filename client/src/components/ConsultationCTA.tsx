@@ -1,76 +1,79 @@
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import dashboardImage from '@assets/generated_images/Tracking_dashboard_with_geofences_5fe718ee.png';
 
 export default function ConsultationCTA() {
   return (
-    <section className="bg-primary py-12 sm:py-16">
+    <section id="pricing" className="bg-primary py-12 sm:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
           <div className="mb-8 lg:mb-0">
             <h2 className="text-3xl font-extrabold text-white sm:text-4xl reveal">
-              Book Your Free Automation Consultation
+              Simple, Transparent Pricing
             </h2>
             <p className="mt-4 text-lg text-white/80 reveal">
-              Not sure what can be automated in your business? Our experts will analyze your processes and show you the possibilities.
+              No hidden fees, no contracts. Just reliable tracking at an affordable price.
             </p>
-            <div className="mt-8 flex space-x-4 reveal">
+            
+            <div className="mt-8 reveal">
+              <Card className="p-6 sm:p-8 bg-white">
+                <div className="flex items-baseline">
+                  <span className="text-5xl font-extrabold text-gray-900" data-testid="text-price">R79</span>
+                  <span className="ml-2 text-2xl font-medium text-gray-500">/month</span>
+                </div>
+                <p className="mt-2 text-gray-500">per device</p>
+                
+                <ul className="mt-6 space-y-4">
+                  {[
+                    "Real-time GPS tracking",
+                    "Unlimited geofencing",
+                    "30-day battery life",
+                    "Mobile & web dashboard",
+                    "Location history & alerts",
+                    "24/7 customer support"
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-start" data-testid={`pricing-feature-${index}`}>
+                      <div className="flex-shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <p className="ml-3 text-base text-gray-700">
+                        {item}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+            </div>
+
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 reveal">
               <a href="#contact">
-                <Button variant="secondary" className="text-primary bg-white hover:bg-gray-100">
-                  Schedule Now
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                </Button>
-              </a>
-              <a href="#services">
-                <Button className="bg-accent hover:bg-accent/90">
-                  Learn More
+                <Button variant="secondary" className="w-full sm:w-auto text-primary bg-white hover:bg-gray-100" data-testid="button-get-started-pricing">
+                  Get Started Today
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </Button>
               </a>
+              <a href="#features">
+                <Button className="w-full sm:w-auto bg-accent hover:bg-accent/90" data-testid="button-view-features">
+                  View Features
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                </Button>
+              </a>
             </div>
-            <p className="mt-4 text-sm text-white/80 reveal">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 inline mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              No obligation, no pressure, just practical advice
-            </p>
           </div>
           <div className="relative lg:col-span-1 reveal">
-            <Card className="p-6 sm:p-8">
-              <div className="flex items-start">
-                <div className="flex-shrink-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                  </svg>
-                </div>
-                <div className="ml-4">
-                  <h3 className="text-lg font-medium text-gray-900">What you'll get:</h3>
-                  <ul className="mt-4 space-y-3">
-                    {[
-                      "Assessment of your current business processes",
-                      "Identification of automation opportunities",
-                      "Estimated time and cost savings analysis",
-                      "Custom automation roadmap for your business",
-                      "Advice on tools and technologies for your needs"
-                    ].map((item, index) => (
-                      <li key={index} className="flex items-start">
-                        <div className="flex-shrink-0">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                          </svg>
-                        </div>
-                        <p className="ml-3 text-base text-gray-700">
-                          {item}
-                        </p>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </Card>
+            <img 
+              src={dashboardImage}
+              alt="KwikTrak tracking dashboard with geofences" 
+              className="rounded-xl shadow-2xl w-full h-auto object-cover"
+              data-testid="img-dashboard"
+            />
           </div>
         </div>
       </div>

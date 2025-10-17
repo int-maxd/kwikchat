@@ -10,16 +10,17 @@ export default function Footer() {
             <div className="flex items-center">
               <div className="h-10 w-10 rounded-md bg-gradient-to-r from-primary to-accent flex items-center justify-center mr-3">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
                 </svg>
               </div>
               <div className="flex items-baseline">
                 <span className="text-2xl font-semibold text-white" style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "-0.025em" }}>kwik</span>
-                <span className="text-2xl font-bold text-accent" style={{ fontFamily: "'Inter', sans-serif", fontWeight: "800", letterSpacing: "-0.025em" }}>FLOW</span>
+                <span className="text-2xl font-bold text-accent" style={{ fontFamily: "'Inter', sans-serif", fontWeight: "800", letterSpacing: "-0.025em" }}>TRAK</span>
               </div>
             </div>
             <p className="text-gray-300 text-base">
-              Automating business processes to save you time, reduce errors, and boost productivity.
+              Track anything, anywhere in South Africa with real-time GPS tracking and month-long battery life.
             </p>
             <div className="flex space-x-6">
               {[
@@ -54,10 +55,9 @@ export default function Footer() {
                 <h3 className="text-base font-medium text-white">Quick Links</h3>
                 <ul className="mt-4 space-y-4">
                   {[
-                    { name: "Services", href: "#services" },
-                    { name: "Integrations", href: "#integrations" },
-                    { name: "Process", href: "#process" },
-                    { name: "Testimonials", href: "#testimonials" },
+                    { name: "Features", href: "#features" },
+                    { name: "Pricing", href: "#pricing" },
+                    { name: "How It Works", href: "#how-it-works" },
                     { name: "Contact", href: "#contact" }
                   ].map((item) => (
                     <li key={item.name}>
@@ -73,8 +73,7 @@ export default function Footer() {
                 <ul className="mt-4 space-y-4">
                   {[
                     { name: "About Us", href: "#" },
-                    { name: "Blog", href: "#" },
-                    { name: "Careers", href: "#" },
+                    { name: "Support", href: "#" },
                     { name: "Privacy Policy", href: "#" },
                     { name: "Terms of Service", href: "#" }
                   ].map((item) => (
@@ -94,7 +93,7 @@ export default function Footer() {
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  hello@kwikflow.co.za
+                  hello@kwiktrak.co.za
                 </p>
                 <p className="text-base text-gray-300 flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -118,7 +117,7 @@ export default function Footer() {
         </div>
         <div className="mt-12 border-t border-gray-700 pt-8">
           <p className="text-base text-gray-400 text-center">
-            &copy; {new Date().getFullYear()} kwikFlow. All rights reserved.
+            &copy; {new Date().getFullYear()} kwikTrak. Part of the kwikFlow Group. All rights reserved.
           </p>
         </div>
       </div>

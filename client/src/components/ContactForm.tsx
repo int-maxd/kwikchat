@@ -16,9 +16,9 @@ const formSchema = z.object({
   fullName: z.string().min(2, { message: "Full name is required" }),
   company: z.string().optional(),
   email: z.string().email({ message: "Please enter a valid email address" }),
-  phone: z.string().optional(),
+  phone: z.string().min(10, { message: "Phone number is required" }),
   systems: z.string().optional(),
-  message: z.string().min(10, { message: "Please tell us a bit more about what you'd like to automate (at least 10 characters)" }),
+  message: z.string().min(10, { message: "Please tell us about your tracking needs (at least 10 characters)" }),
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -44,23 +44,21 @@ export default function ContactForm() {
     try {
       await apiRequest('POST', '/api/consultation-requests', data);
       
-      // Track the successful form submission in Google Analytics
-      trackEvent('form_submission', 'contact', 'consultation_request', 1);
+      trackEvent('form_submission', 'contact', 'order_request', 1);
       
       toast({
-        title: "Success!",
-        description: "Thanks for your enquiry. We'll contact you within one business day to schedule your free consultation.",
+        title: "Order Received!",
+        description: "Thank you for your interest! We'll contact you within one business day to complete your order and arrange delivery.",
         variant: "default",
       });
       
       form.reset();
     } catch (error) {
-      // Track the failed form submission in Google Analytics
-      trackEvent('form_error', 'contact', 'consultation_request', 0);
+      trackEvent('form_error', 'contact', 'order_request', 0);
       
       toast({
         title: "Something went wrong",
-        description: "There was an error submitting your request. Please try again.",
+        description: "There was an error submitting your order. Please try again or contact us directly.",
         variant: "destructive",
       });
     } finally {
@@ -74,16 +72,16 @@ export default function ContactForm() {
         <div className="lg:grid lg:grid-cols-2 lg:gap-8">
           <div className="reveal">
             <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-              Book Your Free Consultation
+              Get Your KwikTrak Device
             </h2>
             <p className="mt-4 text-lg text-gray-600">
-              Fill out the form, and one of our automation experts will get in touch within one business day to schedule your free consultation.
+              Fill out the form below and we'll contact you within one business day to complete your order and arrange delivery.
             </p>
             <div className="mt-8 space-y-6">
               {[
-                { title: "No obligation", description: "We'll provide honest advice whether you become a client or not" },
-                { title: "Expert analysis", description: "Get insights from specialists who have automated processes across industries" },
-                { title: "Clear pricing", description: "We'll provide transparent pricing for any recommended solutions" }
+                { title: "Fast Delivery", description: "Devices shipped within 2-3 business days across South Africa" },
+                { title: "Simple Setup", description: "Get tracking in just 5 minutes with our easy activation process" },
+                { title: "24/7 Support", description: "Our support team is always here to help you get the most from your tracker" }
               ].map((item, index) => (
                 <div key={index} className="flex items-start">
                   <div className="flex-shrink-0">
@@ -114,7 +112,7 @@ export default function ContactForm() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
-                  <p className="ml-3 text-base text-gray-600">hello@kwikflow.co.za</p>
+                  <p className="ml-3 text-base text-gray-600">hello@kwiktrak.co.za</p>
                 </div>
                 <div className="flex items-center">
                   <div className="flex-shrink-0">
@@ -140,7 +138,7 @@ export default function ContactForm() {
                         <FormItem>
                           <FormLabel>Full Name</FormLabel>
                           <FormControl>
-                            <Input placeholder="John Smith" {...field} />
+                            <Input placeholder="John Smith" {...field} data-testid="input-fullname" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -152,9 +150,9 @@ export default function ContactForm() {
                       name="company"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Company Name</FormLabel>
+                          <FormLabel>Company Name (Optional)</FormLabel>
                           <FormControl>
-                            <Input placeholder="Acme Inc." {...field} />
+                            <Input placeholder="Acme Inc." {...field} data-testid="input-company" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -168,7 +166,7 @@ export default function ContactForm() {
                         <FormItem>
                           <FormLabel>Email</FormLabel>
                           <FormControl>
-                            <Input type="email" placeholder="you@example.com" {...field} />
+                            <Input type="email" placeholder="you@example.com" {...field} data-testid="input-email" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -182,7 +180,7 @@ export default function ContactForm() {
                         <FormItem>
                           <FormLabel>Phone</FormLabel>
                           <FormControl>
-                            <Input placeholder="+27 12 345 6789" {...field} />
+                            <Input placeholder="+27 12 345 6789" {...field} data-testid="input-phone" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -194,9 +192,9 @@ export default function ContactForm() {
                       name="systems"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>What systems are you currently using?</FormLabel>
+                          <FormLabel>Number of Devices Needed</FormLabel>
                           <FormControl>
-                            <Input placeholder="E.g., Xero, Trello, Salesforce, etc." {...field} />
+                            <Input placeholder="E.g., 1, 5, 10" {...field} data-testid="input-quantity" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -208,13 +206,14 @@ export default function ContactForm() {
                       name="message"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>What would you like to automate?</FormLabel>
+                          <FormLabel>What do you need to track?</FormLabel>
                           <FormControl>
                             <Textarea
-                              placeholder="Tell us about your business processes and what you're looking to automate..."
+                              placeholder="Tell us about your tracking needs - vehicles, assets, equipment, etc..."
                               className="resize-none"
                               rows={4}
                               {...field}
+                              data-testid="input-message"
                             />
                           </FormControl>
                           <FormMessage />
@@ -222,8 +221,8 @@ export default function ContactForm() {
                       )}
                     />
 
-                    <Button type="submit" className="w-full bg-accent hover:bg-accent/90" disabled={isSubmitting}>
-                      {isSubmitting ? "Submitting..." : "Request Free Consultation"}
+                    <Button type="submit" className="w-full bg-accent hover:bg-accent/90" disabled={isSubmitting} data-testid="button-submit-order">
+                      {isSubmitting ? "Submitting..." : "Submit Order Request"}
                     </Button>
 
                     <div className="text-sm text-gray-500 text-center">
