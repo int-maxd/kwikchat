@@ -1,4 +1,4 @@
-import { pgTable, text, serial, integer, boolean } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, integer, boolean, timestamp } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -8,15 +8,42 @@ export const users = pgTable("users", {
   password: text("password").notNull(),
 });
 
-export const consultationRequests = pgTable("consultation_requests", {
+export const conversations = pgTable("conversations", {
   id: serial("id").primaryKey(),
-  fullName: text("full_name").notNull(),
-  company: text("company"),
-  email: text("email").notNull(),
-  phone: text("phone"),
-  systems: text("systems"),
-  message: text("message").notNull(),
-  createdAt: text("created_at").notNull(),
+  phoneNumber: text("phone_number").notNull(),
+  contactName: text("contact_name"),
+  status: text("status").notNull().default("active"),
+  lastMessageAt: text("last_message_at"),
+  assignedTo: text("assigned_to"),
+});
+
+export const messages = pgTable("messages", {
+  id: serial("id").primaryKey(),
+  conversationId: integer("conversation_id").notNull(),
+  content: text("content").notNull(),
+  sender: text("sender").notNull(),
+  messageType: text("message_type").notNull().default("text"),
+  timestamp: text("timestamp").notNull(),
+  status: text("status").notNull().default("sent"),
+  isFromUser: boolean("is_from_user").notNull(),
+});
+
+export const sessions = pgTable("sessions", {
+  id: serial("id").primaryKey(),
+  conversationId: integer("conversation_id").notNull(),
+  startedAt: text("started_at").notNull(),
+  endedAt: text("ended_at"),
+  sessionType: text("session_type").notNull(),
+  metadata: text("metadata"),
+});
+
+export const automationRules = pgTable("automation_rules", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  trigger: text("trigger").notNull(),
+  conditions: text("conditions"),
+  actions: text("actions").notNull(),
+  isActive: boolean("is_active").notNull().default(true),
 });
 
 export const insertUserSchema = createInsertSchema(users).pick({
@@ -24,11 +51,33 @@ export const insertUserSchema = createInsertSchema(users).pick({
   password: true,
 });
 
-export const insertConsultationRequestSchema = createInsertSchema(consultationRequests)
-  .omit({ id: true, createdAt: true });
+export const insertConversationSchema = createInsertSchema(conversations).omit({
+  id: true,
+});
+
+export const insertMessageSchema = createInsertSchema(messages).omit({
+  id: true,
+});
+
+export const insertSessionSchema = createInsertSchema(sessions).omit({
+  id: true,
+});
+
+export const insertAutomationRuleSchema = createInsertSchema(automationRules).omit({
+  id: true,
+});
 
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
 
-export type InsertConsultationRequest = z.infer<typeof insertConsultationRequestSchema>;
-export type ConsultationRequest = typeof consultationRequests.$inferSelect;
+export type InsertConversation = z.infer<typeof insertConversationSchema>;
+export type Conversation = typeof conversations.$inferSelect;
+
+export type InsertMessage = z.infer<typeof insertMessageSchema>;
+export type Message = typeof messages.$inferSelect;
+
+export type InsertSession = z.infer<typeof insertSessionSchema>;
+export type Session = typeof sessions.$inferSelect;
+
+export type InsertAutomationRule = z.infer<typeof insertAutomationRuleSchema>;
+export type AutomationRule = typeof automationRules.$inferSelect;
