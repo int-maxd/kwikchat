@@ -47,7 +47,9 @@ export default function Dashboard() {
           <Link href="/">
             <div className="flex items-center gap-2 cursor-pointer">
               <MessageCircle className="w-8 h-8 text-green-600" />
-              <span className="text-2xl font-bold">ChatFlow</span>
+              <span className="text-2xl font-bold">
+                kwik<span className="text-green-600">CHAT</span>
+              </span>
             </div>
           </Link>
           <div className="flex items-center gap-4">

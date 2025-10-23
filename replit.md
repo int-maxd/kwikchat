@@ -1,8 +1,8 @@
-# KwikTrak GPS Tracking Application
+# KwikChat WhatsApp Business Automation
 
 ## Overview
 
-KwikTrak is a GPS tracking service platform targeting the South African market. The application allows customers to order GPS tracking devices, view tracking data, and manage their devices through a web-based dashboard. The platform offers real-time GPS tracking with cellular connectivity at R79/month per device, featuring a 30-day battery life and comprehensive geofencing capabilities.
+KwikChat is a WhatsApp Business automation platform that enables businesses to manage customer conversations with intelligent automation and human intervention. The platform integrates with Meta's WhatsApp Cloud API to provide real-time messaging, programmable automation rules, and comprehensive conversation management.
 
 The application is built as a full-stack TypeScript solution with a React frontend and Express backend, designed for deployment on Replit.
 
@@ -24,7 +24,7 @@ Preferred communication style: Simple, everyday language.
 - Shadcn/ui component system with Radix UI primitives
 - Tailwind CSS for styling with custom design tokens
 - "New York" style variant selected for component theming
-- Custom color scheme featuring primary blue (#1F7A8C area), accent green (#A9D65C), with HSL-based theming system
+- Custom color scheme featuring primary green (#22c55e area) inspired by KwikFlow branding
 
 **Rationale:** This stack provides a modern, performant developer experience while maintaining a lightweight bundle size. Shadcn/ui was chosen over heavier component libraries to provide full control over components while still benefiting from accessibility-focused Radix primitives.
 
@@ -45,6 +45,7 @@ Preferred communication style: Simple, everyday language.
 - JSON-based request/response format
 - Error handling middleware for consistent error responses
 - Request logging middleware for debugging
+- WhatsApp webhook integration for receiving messages
 
 **Rationale:** Express provides a minimal, unopinionated foundation suitable for the application's straightforward API needs. The separation between development and production builds ensures fast iteration during development while maintaining production efficiency.
 
@@ -63,58 +64,39 @@ Preferred communication style: Simple, everyday language.
 
 **Data Models:**
 - Users: Authentication and user management
-- Conversations: WhatsApp/messaging conversation tracking
+- Conversations: WhatsApp conversation tracking with contact information
 - Messages: Individual message storage with sender, content, and metadata
-- Sessions: User session management with metadata
-- Automation Rules: Business logic automation configurations
+- Sessions: Conversation session management with metadata
+- Automation Rules: Business logic automation configurations with triggers and actions
 
 **In-Memory Fallback:**
 - `MemStorage` class implements `IStorage` interface for development/testing
 - Enables application to run without database connection
 - Maps-based storage for all entities with auto-incrementing IDs
+- Includes sample data for development
 
 **Rationale:** PostgreSQL provides reliability and SQL capabilities needed for relational data. Drizzle was chosen over heavier ORMs like Prisma for its lighter weight and direct SQL generation. The storage interface pattern enables easy swapping between database implementations and facilitates testing.
-
-### Authentication and Authorization
-
-**Session Management:**
-- `connect-pg-simple` for PostgreSQL-backed session storage
-- Session data persisted in database for multi-instance deployments
-- Cookie-based session handling via Express
-
-**Rationale:** While the current codebase shows authentication infrastructure, the implementation appears to be in early stages. PostgreSQL session storage was chosen to support horizontal scaling and persistence across server restarts.
 
 ### External Dependencies
 
 **Third-Party Services:**
 
-1. **Email Service - Mailgun:**
-   - Purpose: Transactional email for consultation requests and notifications
-   - Configuration: EU region endpoint (`api.eu.mailgun.net`)
-   - Required environment variables: `MAILGUN_API_KEY`, `MAILGUN_DOMAIN`
-   - Implementation: Custom email module with HTML templating
+1. **WhatsApp Business Cloud API:**
+   - Purpose: Real-time messaging integration with WhatsApp
+   - Configuration: Meta Business account with WhatsApp Cloud API access
+   - Required environment variables: `WHATSAPP_PHONE_ID`, `WHATSAPP_TOKEN`, `WHATSAPP_VERIFY_TOKEN`
+   - Implementation: Webhook for receiving messages, REST API for sending messages
 
-2. **Analytics - Google Analytics 4:**
-   - Purpose: User behavior tracking and conversion analytics
-   - Configuration: `VITE_GA_MEASUREMENT_ID` environment variable
-   - Implementation: Custom analytics wrapper with page view and event tracking
-   - Features: SPA-aware page tracking, custom event tracking for form submissions
-
-3. **Development Tools:**
+2. **Development Tools:**
    - Replit-specific plugins for development environment integration
    - Runtime error overlay for development debugging
    - Cartographer plugin for Replit IDE integration (development only)
-
-**Asset Management:**
-- Static images stored in `attached_assets/generated_images/` directory
-- Vite alias `@assets` for clean import paths
-- Images include: GPS tracking map visualization, compact GPS device renders, dashboard UI mockups
 
 **Font Dependencies:**
 - Google Fonts: Inter font family (weights 400-800) for typography
 - Preconnect optimization for faster font loading
 
-**Rationale:** Mailgun provides reliable transactional email with EU data residency. Google Analytics 4 offers comprehensive tracking without requiring third-party tag managers. The development tooling integrates seamlessly with Replit's environment while remaining removable for other deployment targets.
+**Rationale:** WhatsApp Cloud API provides direct integration with WhatsApp Business without requiring a physical device. The development tooling integrates seamlessly with Replit's environment while remaining removable for other deployment targets.
 
 ### Build and Deployment
 

@@ -18,7 +18,7 @@ import {
 
 export default function Home() {
   useEffect(() => {
-    document.title = "WhatsApp Business Automation | ChatFlow";
+    document.title = "WhatsApp Business Automation | KwikChat";
   }, []);
 
   return (
@@ -27,7 +27,9 @@ export default function Home() {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <MessageCircle className="w-8 h-8 text-green-600" />
-            <span className="text-2xl font-bold">ChatFlow</span>
+            <span className="text-2xl font-bold">
+              kwik<span className="text-green-600">CHAT</span>
+            </span>
           </div>
           <div className="flex items-center gap-4">
             <a href="#features" className="text-sm font-medium hover:text-green-600 transition">Features</a>
@@ -231,10 +233,12 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-2">
               <MessageCircle className="w-6 h-6 text-green-600" />
-              <span className="font-bold">ChatFlow</span>
+              <span className="font-bold">
+                kwik<span className="text-green-600">CHAT</span>
+              </span>
             </div>
             <div className="text-sm text-gray-600">
-              © 2025 ChatFlow. All rights reserved.
+              © 2025 KwikChat. All rights reserved.
             </div>
           </div>
         </div>
