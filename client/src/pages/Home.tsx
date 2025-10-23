@@ -212,6 +212,156 @@ export default function Home() {
 
         <section id="pricing" className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Simple, Transparent Pricing</h2>
+              <p className="text-xl text-gray-600">Choose the plan that fits your business needs</p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              <Card data-testid="pricing-starter">
+                <CardContent className="pt-6">
+                  <div className="text-center mb-6">
+                    <h3 className="text-2xl font-bold mb-2">Starter</h3>
+                    <p className="text-gray-600 mb-4">Perfect for small businesses</p>
+                    <div className="mb-4">
+                      <span className="text-4xl font-bold">R499</span>
+                      <span className="text-gray-600">/month</span>
+                    </div>
+                  </div>
+                  <ul className="space-y-3 mb-6">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Up to 1,000 messages/month</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">3 automation rules</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">1 user account</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Basic analytics</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Email support</span>
+                    </li>
+                  </ul>
+                  <Link href="/dashboard">
+                    <Button className="w-full" variant="outline" data-testid="button-pricing-starter">
+                      Get Started
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+
+              <Card className="border-green-600 border-2 relative" data-testid="pricing-professional">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-green-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                  Most Popular
+                </div>
+                <CardContent className="pt-6">
+                  <div className="text-center mb-6">
+                    <h3 className="text-2xl font-bold mb-2">Professional</h3>
+                    <p className="text-gray-600 mb-4">For growing businesses</p>
+                    <div className="mb-4">
+                      <span className="text-4xl font-bold">R999</span>
+                      <span className="text-gray-600">/month</span>
+                    </div>
+                  </div>
+                  <ul className="space-y-3 mb-6">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Up to 5,000 messages/month</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Unlimited automation rules</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">3 user accounts</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Advanced analytics & insights</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Priority email & chat support</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Custom branding</span>
+                    </li>
+                  </ul>
+                  <Link href="/dashboard">
+                    <Button className="w-full" data-testid="button-pricing-professional">
+                      Get Started
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+
+              <Card data-testid="pricing-enterprise">
+                <CardContent className="pt-6">
+                  <div className="text-center mb-6">
+                    <h3 className="text-2xl font-bold mb-2">Enterprise</h3>
+                    <p className="text-gray-600 mb-4">For large organizations</p>
+                    <div className="mb-4">
+                      <span className="text-4xl font-bold">Custom</span>
+                    </div>
+                  </div>
+                  <ul className="space-y-3 mb-6">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Unlimited messages</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Unlimited automation rules</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Unlimited users</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Custom integrations</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Dedicated account manager</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">24/7 phone support</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">SLA guarantee</span>
+                    </li>
+                  </ul>
+                  <Link href="/dashboard">
+                    <Button className="w-full" variant="outline" data-testid="button-pricing-enterprise">
+                      Contact Sales
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="mt-12 text-center text-sm text-gray-600">
+              <p>All plans include WhatsApp Cloud API integration and secure data storage.</p>
+              <p className="mt-2">Need a custom solution? <a href="#" className="text-green-600 hover:underline">Contact us</a> for tailored pricing.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto bg-green-600 text-white rounded-2xl p-12 text-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Transform Your Customer Engagement?</h2>
               <p className="text-xl mb-8 opacity-90">
