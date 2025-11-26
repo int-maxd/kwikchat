@@ -510,7 +510,7 @@ export default function Home() {
                         <Input
                           id="email"
                           type="email"
-                          placeholder="thabo@shoprite.co.za"
+                          placeholder="thabo@company.co.za"
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           required
