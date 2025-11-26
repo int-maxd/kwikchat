@@ -24,10 +24,13 @@ import {
 } from 'lucide-react';
 
 const FEATURES = [
-  { id: 'automation', label: 'Smart Automation', description: 'Automated message responses' },
+  { id: 'rule-based', label: 'Rule-Based Conversations', description: 'Automated flows & triggers' },
+  { id: 'ai-conversations', label: 'AI Conversations', description: 'Intelligent chat responses' },
   { id: 'human-handover', label: 'Human Intervention', description: 'Seamless agent handoff' },
+  { id: 'campaigns', label: 'Marketing Campaigns', description: 'Business-initiated messaging' },
+  { id: 'omnichannel', label: 'Omnichannel Messaging', description: 'WhatsApp, Email (FB & IG coming soon)' },
+  { id: 'integrations', label: 'System Integrations', description: 'Connect CRM, Accounting & more' },
   { id: 'analytics', label: 'Analytics Dashboard', description: 'Conversation insights' },
-  { id: 'whatsapp-api', label: 'WhatsApp Cloud API', description: 'Meta API integration' },
   { id: 'multi-user', label: 'Multi-User Access', description: 'Team collaboration' },
   { id: 'custom-branding', label: 'Custom Branding', description: 'White-label options' },
 ];
