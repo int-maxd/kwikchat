@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'wouter';
 import { useMutation } from '@tanstack/react-query';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -121,9 +120,9 @@ export default function Home() {
             <a href="#features" className="text-sm font-medium hover:text-green-600 transition">Features</a>
             <a href="#how-it-works" className="text-sm font-medium hover:text-green-600 transition">How It Works</a>
             <a href="#pricing" className="text-sm font-medium hover:text-green-600 transition">Pricing</a>
-            <Link href="/dashboard">
-              <Button data-testid="button-dashboard">Dashboard</Button>
-            </Link>
+            <a href="#contact">
+              <Button data-testid="button-get-started-nav">Get Started</Button>
+            </a>
           </div>
         </div>
       </nav>
@@ -140,15 +139,17 @@ export default function Home() {
                 and seamless integration with Meta's WhatsApp Cloud API
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/dashboard">
+                <a href="#contact">
                   <Button size="lg" className="w-full sm:w-auto" data-testid="button-get-started">
                     Get Started Free
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
-                </Link>
-                <Button size="lg" variant="outline" className="w-full sm:w-auto" data-testid="button-watch-demo">
-                  Watch Demo
-                </Button>
+                </a>
+                <a href="#how-it-works">
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto" data-testid="button-learn-more">
+                    Learn More
+                  </Button>
+                </a>
               </div>
             </div>
           </div>
@@ -336,11 +337,11 @@ export default function Home() {
                       <span className="text-sm">Email support</span>
                     </li>
                   </ul>
-                  <Link href="/dashboard">
+                  <a href="#contact">
                     <Button className="w-full" variant="outline" data-testid="button-pricing-starter">
                       Get Started
                     </Button>
-                  </Link>
+                  </a>
                 </CardContent>
               </Card>
 
@@ -383,11 +384,11 @@ export default function Home() {
                       <span className="text-sm">Custom branding</span>
                     </li>
                   </ul>
-                  <Link href="/dashboard">
+                  <a href="#contact">
                     <Button className="w-full" data-testid="button-pricing-professional">
                       Get Started
                     </Button>
-                  </Link>
+                  </a>
                 </CardContent>
               </Card>
 
@@ -430,11 +431,11 @@ export default function Home() {
                       <span className="text-sm">SLA guarantee</span>
                     </li>
                   </ul>
-                  <Link href="/dashboard">
+                  <a href="#contact">
                     <Button className="w-full" variant="outline" data-testid="button-pricing-enterprise">
                       Contact Sales
                     </Button>
-                  </Link>
+                  </a>
                 </CardContent>
               </Card>
             </div>
@@ -442,6 +443,23 @@ export default function Home() {
             <div className="mt-12 text-center text-sm text-gray-600">
               <p>All plans include WhatsApp Cloud API integration and secure data storage.</p>
               <p className="mt-2">Need a custom solution? <a href="#contact" className="text-green-600 hover:underline">Contact us</a> for tailored pricing.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-20 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto bg-green-600 text-white rounded-2xl p-12 text-center">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Transform Your Customer Engagement?</h2>
+              <p className="text-xl mb-8 opacity-90">
+                Start automating your WhatsApp conversations today
+              </p>
+              <a href="#contact">
+                <Button size="lg" variant="secondary" data-testid="button-get-started-cta">
+                  Get Started Now
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </a>
             </div>
           </div>
         </section>
@@ -581,23 +599,6 @@ export default function Home() {
                   </form>
                 </CardContent>
               </Card>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-20 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto bg-green-600 text-white rounded-2xl p-12 text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Transform Your Customer Engagement?</h2>
-              <p className="text-xl mb-8 opacity-90">
-                Start automating your WhatsApp conversations today
-              </p>
-              <Link href="/dashboard">
-                <Button size="lg" variant="secondary" data-testid="button-get-started-cta">
-                  Get Started Now
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-              </Link>
             </div>
           </div>
         </section>
