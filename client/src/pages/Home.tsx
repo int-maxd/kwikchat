@@ -536,6 +536,7 @@ export default function Home() {
                           >
                             <Checkbox
                               checked={formData.selectedFeatures.includes(feature.id)}
+                              onClick={(e) => e.stopPropagation()}
                               onCheckedChange={() => handleFeatureToggle(feature.id)}
                             />
                             <div>
