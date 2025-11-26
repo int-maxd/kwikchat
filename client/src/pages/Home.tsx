@@ -197,9 +197,9 @@ export default function Home() {
               <Card data-testid="card-feature-automation">
                 <CardContent className="pt-6">
                   <Bot className="w-12 h-12 text-green-600 mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">Auto-Reply to FAQs</h3>
+                  <h3 className="text-xl font-semibold mb-2">Automated Business Workflows</h3>
                   <p className="text-gray-600">
-                    Set up automatic responses for common questions like pricing, hours, and directions — so you don't have to repeat yourself
+                    Automate your entire customer journey — from answering FAQs and capturing leads, to customer onboarding, quote requests, order confirmations, and delivery updates. Stop repeating yourself and let automation handle the routine.
                   </p>
                 </CardContent>
               </Card>
