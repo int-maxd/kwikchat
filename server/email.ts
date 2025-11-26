@@ -1,6 +1,16 @@
 import FormData from "form-data";
 import Mailgun from "mailgun.js";
-import { ConsultationRequest, Lead } from "@shared/schema";
+import { Lead } from "@shared/schema";
+
+interface ConsultationRequest {
+  fullName: string;
+  email: string;
+  company?: string;
+  phone?: string;
+  systems?: string;
+  message: string;
+  createdAt: string;
+}
 
 // Initialize Mailgun client
 const mailgun = new Mailgun(FormData);

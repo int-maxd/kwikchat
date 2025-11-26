@@ -90,7 +90,11 @@ export default function Home() {
   };
 
   const validateEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  const validatePhone = (phone: string) => !phone || /^(\+27|0)[6-8][0-9]{8}$/.test(phone.replace(/\s/g, ''));
+  const validatePhone = (phone: string) => {
+    if (!phone) return true;
+    const cleaned = phone.replace(/[\s\-\(\)]/g, '');
+    return /^(\+27|0)[6-8][0-9]{8}$/.test(cleaned);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -154,12 +158,12 @@ export default function Home() {
         <section className="py-20 md:py-32 bg-gradient-to-b from-green-50 to-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
+              <p className="text-green-600 font-semibold mb-4 uppercase tracking-wide">For businesses running on WhatsApp</p>
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                Automate Your WhatsApp Business Conversations
+                Automate Your Chats, Stay in Control
               </h1>
               <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                Engage customers 24/7 with intelligent automation, human intervention when needed,
-                and seamless integration with Meta's WhatsApp Cloud API
+                Running your business on WhatsApp? Automate customer enquiries while keeping the ability to jump in and chat personally — all from one central dashboard.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="#contact">
@@ -170,10 +174,11 @@ export default function Home() {
                 </a>
                 <a href="#how-it-works">
                   <Button size="lg" variant="outline" className="w-full sm:w-auto" data-testid="button-learn-more">
-                    Learn More
+                    See How It Works
                   </Button>
                 </a>
               </div>
+              <p className="mt-6 text-sm text-gray-500">No technical skills needed. Works with Meta's official WhatsApp Business API.</p>
             </div>
           </div>
         </section>
@@ -181,17 +186,17 @@ export default function Home() {
         <section id="features" className="py-20 bg-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Everything You Need</h2>
-              <p className="text-xl text-gray-600">Powerful features to manage your WhatsApp conversations</p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Automation + Human Touch</h2>
+              <p className="text-xl text-gray-600">Let automation handle the repetitive stuff while you focus on what matters</p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <Card data-testid="card-feature-automation">
                 <CardContent className="pt-6">
                   <Bot className="w-12 h-12 text-green-600 mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">Smart Automation</h3>
+                  <h3 className="text-xl font-semibold mb-2">Auto-Reply to FAQs</h3>
                   <p className="text-gray-600">
-                    Create programmable message flows with triggers, conditions, and actions to automate responses
+                    Set up automatic responses for common questions like pricing, hours, and directions — so you don't have to repeat yourself
                   </p>
                 </CardContent>
               </Card>
@@ -199,9 +204,9 @@ export default function Home() {
               <Card data-testid="card-feature-human">
                 <CardContent className="pt-6">
                   <Users className="w-12 h-12 text-green-600 mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">Human Intervention</h3>
+                  <h3 className="text-xl font-semibold mb-2">Jump In Anytime</h3>
                   <p className="text-gray-600">
-                    Seamlessly hand off conversations to human agents when automation isn't enough
+                    When a customer needs personal attention, take over the conversation instantly from your dashboard
                   </p>
                 </CardContent>
               </Card>
@@ -209,9 +214,9 @@ export default function Home() {
               <Card data-testid="card-feature-realtime">
                 <CardContent className="pt-6">
                   <Zap className="w-12 h-12 text-green-600 mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">Real-time Messaging</h3>
+                  <h3 className="text-xl font-semibold mb-2">One Dashboard</h3>
                   <p className="text-gray-600">
-                    Send and receive messages instantly with Meta's WhatsApp Cloud API integration
+                    See all your WhatsApp conversations in one place — no more scrolling through your phone all day
                   </p>
                 </CardContent>
               </Card>
@@ -219,9 +224,9 @@ export default function Home() {
               <Card data-testid="card-feature-sessions">
                 <CardContent className="pt-6">
                   <MessageSquare className="w-12 h-12 text-green-600 mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">Session Management</h3>
+                  <h3 className="text-xl font-semibold mb-2">Never Miss a Message</h3>
                   <p className="text-gray-600">
-                    Track and manage conversation sessions with detailed metadata and analytics
+                    Track every conversation with timestamps and history — know exactly where you left off
                   </p>
                 </CardContent>
               </Card>
@@ -229,9 +234,9 @@ export default function Home() {
               <Card data-testid="card-feature-analytics">
                 <CardContent className="pt-6">
                   <BarChart3 className="w-12 h-12 text-green-600 mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">Analytics Dashboard</h3>
+                  <h3 className="text-xl font-semibold mb-2">Know Your Numbers</h3>
                   <p className="text-gray-600">
-                    Monitor conversation metrics, response times, and automation performance
+                    See how many chats you're handling, response times, and what's working with your automation
                   </p>
                 </CardContent>
               </Card>
@@ -239,9 +244,9 @@ export default function Home() {
               <Card data-testid="card-feature-configuration">
                 <CardContent className="pt-6">
                   <Settings className="w-12 h-12 text-green-600 mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">Easy Configuration</h3>
+                  <h3 className="text-xl font-semibold mb-2">No Coding Required</h3>
                   <p className="text-gray-600">
-                    Set up automation rules and conversation flows without writing code
+                    Set up everything with simple clicks — if you can use WhatsApp, you can use KwikChat
                   </p>
                 </CardContent>
               </Card>
@@ -473,9 +478,9 @@ export default function Home() {
         <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto bg-green-600 text-white rounded-2xl p-12 text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Transform Your Customer Engagement?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Stop Missing Customer Messages</h2>
               <p className="text-xl mb-8 opacity-90">
-                Start automating your WhatsApp conversations today
+                Let automation work 24/7 while you stay in control from your dashboard
               </p>
               <a href="#contact">
                 <Button size="lg" variant="secondary" data-testid="button-get-started-cta">
@@ -491,8 +496,8 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Register Your Interest</h2>
-                <p className="text-xl text-gray-600">Tell us about your needs and we'll get in touch with a personalized solution</p>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Automate Your WhatsApp?</h2>
+                <p className="text-xl text-gray-600">Tell us about your business and we'll show you how KwikChat can help</p>
               </div>
 
               <Card>
@@ -533,7 +538,7 @@ export default function Home() {
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           data-testid="input-lead-phone"
                         />
-                        {formData.phone && !/^(\+27|0)[6-8][0-9]{8}$/.test(formData.phone.replace(/\s/g, '')) && (
+                        {formData.phone && !validatePhone(formData.phone) && (
                           <p className="text-sm text-red-500">Please enter a valid SA mobile number (e.g., +27 82 123 4567)</p>
                         )}
                       </div>
@@ -553,26 +558,24 @@ export default function Home() {
                       <Label>Which features are you interested in? *</Label>
                       <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
                         {FEATURES.map((feature) => (
-                          <div
+                          <label
                             key={feature.id}
                             className={`flex items-start space-x-3 p-3 border rounded-lg cursor-pointer transition-colors ${
                               formData.selectedFeatures.includes(feature.id)
                                 ? 'border-green-600 bg-green-50'
                                 : 'border-gray-200 hover:border-gray-300'
                             }`}
-                            onClick={() => handleFeatureToggle(feature.id)}
                             data-testid={`checkbox-feature-${feature.id}`}
                           >
                             <Checkbox
                               checked={formData.selectedFeatures.includes(feature.id)}
-                              onClick={(e) => e.stopPropagation()}
                               onCheckedChange={() => handleFeatureToggle(feature.id)}
                             />
                             <div>
                               <div className="font-medium text-sm">{feature.label}</div>
                               <div className="text-xs text-gray-500">{feature.description}</div>
                             </div>
-                          </div>
+                          </label>
                         ))}
                       </div>
                     </div>
