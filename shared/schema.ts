@@ -46,6 +46,18 @@ export const automationRules = pgTable("automation_rules", {
   isActive: boolean("is_active").notNull().default(true),
 });
 
+export const leads = pgTable("leads", {
+  id: serial("id").primaryKey(),
+  email: text("email").notNull(),
+  companyName: text("company_name"),
+  phone: text("phone"),
+  role: text("role"),
+  message: text("message"),
+  interestedFeatures: text("interested_features").notNull(),
+  preferredPlan: text("preferred_plan"),
+  createdAt: text("created_at").notNull(),
+});
+
 export const insertUserSchema = createInsertSchema(users).pick({
   username: true,
   password: true,
@@ -67,6 +79,11 @@ export const insertAutomationRuleSchema = createInsertSchema(automationRules).om
   id: true,
 });
 
+export const insertLeadSchema = createInsertSchema(leads).omit({
+  id: true,
+  createdAt: true,
+});
+
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
 
@@ -81,3 +98,6 @@ export type Session = typeof sessions.$inferSelect;
 
 export type InsertAutomationRule = z.infer<typeof insertAutomationRuleSchema>;
 export type AutomationRule = typeof automationRules.$inferSelect;
+
+export type InsertLead = z.infer<typeof insertLeadSchema>;
+export type Lead = typeof leads.$inferSelect;

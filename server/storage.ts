@@ -9,6 +9,8 @@ import {
   type InsertSession,
   type AutomationRule,
   type InsertAutomationRule,
+  type Lead,
+  type InsertLead,
 } from "@shared/schema";
 
 export interface IStorage {
@@ -33,6 +35,9 @@ export interface IStorage {
   createAutomationRule(rule: InsertAutomationRule): Promise<AutomationRule>;
   updateAutomationRule(id: number, updates: Partial<AutomationRule>): Promise<AutomationRule | undefined>;
   deleteAutomationRule(id: number): Promise<boolean>;
+
+  getLeads(): Promise<Lead[]>;
+  createLead(lead: InsertLead): Promise<Lead>;
 }
 
 export class MemStorage implements IStorage {
@@ -41,12 +46,14 @@ export class MemStorage implements IStorage {
   private messages: Map<number, Message>;
   private sessions: Map<number, Session>;
   private automationRules: Map<number, AutomationRule>;
+  private leads: Map<number, Lead>;
 
   private currentUserId: number;
   private currentConversationId: number;
   private currentMessageId: number;
   private currentSessionId: number;
   private currentAutomationRuleId: number;
+  private currentLeadId: number;
 
   constructor() {
     this.users = new Map();
@@ -54,12 +61,14 @@ export class MemStorage implements IStorage {
     this.messages = new Map();
     this.sessions = new Map();
     this.automationRules = new Map();
+    this.leads = new Map();
 
     this.currentUserId = 1;
     this.currentConversationId = 1;
     this.currentMessageId = 1;
     this.currentSessionId = 1;
     this.currentAutomationRuleId = 1;
+    this.currentLeadId = 1;
 
     this.seedData();
   }
@@ -288,6 +297,29 @@ export class MemStorage implements IStorage {
 
   async deleteAutomationRule(id: number): Promise<boolean> {
     return this.automationRules.delete(id);
+  }
+
+  async getLeads(): Promise<Lead[]> {
+    return Array.from(this.leads.values()).sort((a, b) => 
+      new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    );
+  }
+
+  async createLead(insertLead: InsertLead): Promise<Lead> {
+    const id = this.currentLeadId++;
+    const lead: Lead = {
+      id,
+      email: insertLead.email,
+      companyName: insertLead.companyName ?? null,
+      phone: insertLead.phone ?? null,
+      role: insertLead.role ?? null,
+      message: insertLead.message ?? null,
+      interestedFeatures: insertLead.interestedFeatures,
+      preferredPlan: insertLead.preferredPlan ?? null,
+      createdAt: new Date().toISOString(),
+    };
+    this.leads.set(id, lead);
+    return lead;
   }
 }
 

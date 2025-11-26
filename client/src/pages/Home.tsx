@@ -1,7 +1,14 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'wouter';
+import { useMutation } from '@tanstack/react-query';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
+import { Checkbox } from '@/components/ui/checkbox';
+import { useToast } from '@/hooks/use-toast';
+import { apiRequest } from '@/lib/queryClient';
 import {
   MessageCircle,
   Bot,
@@ -14,9 +21,88 @@ import {
   MessageSquare,
   Settings,
   Send,
+  Mail,
 } from 'lucide-react';
 
+const FEATURES = [
+  { id: 'automation', label: 'Smart Automation', description: 'Automated message responses' },
+  { id: 'human-handover', label: 'Human Intervention', description: 'Seamless agent handoff' },
+  { id: 'analytics', label: 'Analytics Dashboard', description: 'Conversation insights' },
+  { id: 'whatsapp-api', label: 'WhatsApp Cloud API', description: 'Meta API integration' },
+  { id: 'multi-user', label: 'Multi-User Access', description: 'Team collaboration' },
+  { id: 'custom-branding', label: 'Custom Branding', description: 'White-label options' },
+];
+
 export default function Home() {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    email: '',
+    companyName: '',
+    phone: '',
+    role: '',
+    message: '',
+    selectedFeatures: [] as string[],
+    preferredPlan: '',
+  });
+
+  const submitLeadMutation = useMutation({
+    mutationFn: async () => {
+      return apiRequest('POST', '/api/leads', {
+        email: formData.email,
+        companyName: formData.companyName || null,
+        phone: formData.phone || null,
+        role: formData.role || null,
+        message: formData.message || null,
+        interestedFeatures: formData.selectedFeatures.join(', '),
+        preferredPlan: formData.preferredPlan || null,
+      });
+    },
+    onSuccess: () => {
+      toast({
+        title: "Thank you for your interest!",
+        description: "We'll be in touch within 24 hours.",
+      });
+      setFormData({
+        email: '',
+        companyName: '',
+        phone: '',
+        role: '',
+        message: '',
+        selectedFeatures: [],
+        preferredPlan: '',
+      });
+    },
+    onError: () => {
+      toast({
+        title: "Something went wrong",
+        description: "Please try again or contact us directly.",
+        variant: "destructive",
+      });
+    },
+  });
+
+  const handleFeatureToggle = (featureId: string) => {
+    setFormData(prev => ({
+      ...prev,
+      selectedFeatures: prev.selectedFeatures.includes(featureId)
+        ? prev.selectedFeatures.filter(f => f !== featureId)
+        : [...prev.selectedFeatures, featureId],
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.email || formData.selectedFeatures.length === 0) {
+      toast({
+        title: "Please fill in required fields",
+        description: "Email and at least one feature selection are required.",
+        variant: "destructive",
+      });
+      return;
+    }
+    submitLeadMutation.mutate();
+  };
+
   useEffect(() => {
     document.title = "WhatsApp Business Automation | KwikChat";
   }, []);
@@ -355,12 +441,151 @@ export default function Home() {
 
             <div className="mt-12 text-center text-sm text-gray-600">
               <p>All plans include WhatsApp Cloud API integration and secure data storage.</p>
-              <p className="mt-2">Need a custom solution? <a href="#" className="text-green-600 hover:underline">Contact us</a> for tailored pricing.</p>
+              <p className="mt-2">Need a custom solution? <a href="#contact" className="text-green-600 hover:underline">Contact us</a> for tailored pricing.</p>
             </div>
           </div>
         </section>
 
-        <section className="py-20 bg-white">
+        <section id="contact" className="py-20 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Register Your Interest</h2>
+                <p className="text-xl text-gray-600">Tell us about your needs and we'll get in touch with a personalized solution</p>
+              </div>
+
+              <Card>
+                <CardContent className="pt-6">
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <Label htmlFor="email">Email Address *</Label>
+                        <Input
+                          id="email"
+                          type="email"
+                          placeholder="you@company.com"
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          required
+                          data-testid="input-lead-email"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="companyName">Company Name</Label>
+                        <Input
+                          id="companyName"
+                          placeholder="Your Company"
+                          value={formData.companyName}
+                          onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
+                          data-testid="input-lead-company"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="phone">Phone Number</Label>
+                        <Input
+                          id="phone"
+                          placeholder="+27 12 345 6789"
+                          value={formData.phone}
+                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          data-testid="input-lead-phone"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="role">Your Role</Label>
+                        <Input
+                          id="role"
+                          placeholder="e.g., Marketing Manager"
+                          value={formData.role}
+                          onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+                          data-testid="input-lead-role"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-3">
+                      <Label>Which features are you interested in? *</Label>
+                      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                        {FEATURES.map((feature) => (
+                          <div
+                            key={feature.id}
+                            className={`flex items-start space-x-3 p-3 border rounded-lg cursor-pointer transition-colors ${
+                              formData.selectedFeatures.includes(feature.id)
+                                ? 'border-green-600 bg-green-50'
+                                : 'border-gray-200 hover:border-gray-300'
+                            }`}
+                            onClick={() => handleFeatureToggle(feature.id)}
+                            data-testid={`checkbox-feature-${feature.id}`}
+                          >
+                            <Checkbox
+                              checked={formData.selectedFeatures.includes(feature.id)}
+                              onCheckedChange={() => handleFeatureToggle(feature.id)}
+                            />
+                            <div>
+                              <div className="font-medium text-sm">{feature.label}</div>
+                              <div className="text-xs text-gray-500">{feature.description}</div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="space-y-3">
+                      <Label>Preferred Plan</Label>
+                      <div className="flex flex-wrap gap-3">
+                        {['Starter', 'Professional', 'Enterprise', 'Not sure yet'].map((plan) => (
+                          <button
+                            key={plan}
+                            type="button"
+                            className={`px-4 py-2 border rounded-lg text-sm transition-colors ${
+                              formData.preferredPlan === plan
+                                ? 'border-green-600 bg-green-50 text-green-800'
+                                : 'border-gray-200 hover:border-gray-300'
+                            }`}
+                            onClick={() => setFormData({ ...formData, preferredPlan: plan })}
+                            data-testid={`button-plan-${plan.toLowerCase().replace(' ', '-')}`}
+                          >
+                            {plan}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="message">Additional Information</Label>
+                      <Textarea
+                        id="message"
+                        placeholder="Tell us about your current setup, volume of messages, or any specific requirements..."
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        rows={4}
+                        data-testid="textarea-lead-message"
+                      />
+                    </div>
+
+                    <Button
+                      type="submit"
+                      size="lg"
+                      className="w-full md:w-auto"
+                      disabled={submitLeadMutation.isPending}
+                      data-testid="button-submit-interest"
+                    >
+                      {submitLeadMutation.isPending ? (
+                        "Submitting..."
+                      ) : (
+                        <>
+                          <Mail className="w-4 h-4 mr-2" />
+                          Submit Interest
+                        </>
+                      )}
+                    </Button>
+                  </form>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto bg-green-600 text-white rounded-2xl p-12 text-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Transform Your Customer Engagement?</h2>

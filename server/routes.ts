@@ -5,7 +5,9 @@ import {
   insertConversationSchema,
   insertMessageSchema,
   insertAutomationRuleSchema,
+  insertLeadSchema,
 } from "@shared/schema";
+import { z } from "zod";
 import { ZodError } from "zod";
 import { fromZodError } from "zod-validation-error";
 
@@ -328,6 +330,43 @@ export async function registerRoutes(app: Express): Promise<Server> {
         tokenConfigured: !!process.env.WHATSAPP_TOKEN,
       },
     });
+  });
+
+  const leadFormSchema = insertLeadSchema.extend({
+    email: z.string().email("Please enter a valid email address"),
+    interestedFeatures: z.string().min(1, "Please select at least one feature"),
+  });
+
+  app.post("/api/leads", async (req, res) => {
+    try {
+      const validatedData = leadFormSchema.parse(req.body);
+      const lead = await storage.createLead(validatedData);
+      res.status(201).json({
+        message: "Thank you for your interest! We'll be in touch soon.",
+        id: lead.id,
+      });
+    } catch (error) {
+      if (error instanceof ZodError) {
+        const validationError = fromZodError(error);
+        res.status(400).json({
+          message: "Validation error",
+          errors: validationError.details,
+        });
+      } else {
+        console.error("Error creating lead:", error);
+        res.status(500).json({ message: "Internal server error" });
+      }
+    }
+  });
+
+  app.get("/api/leads", async (req, res) => {
+    try {
+      const leads = await storage.getLeads();
+      res.json(leads);
+    } catch (error) {
+      console.error("Error fetching leads:", error);
+      res.status(500).json({ message: "Internal server error" });
+    }
   });
 
   const httpServer = createServer(app);
