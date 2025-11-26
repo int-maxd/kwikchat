@@ -342,8 +342,7 @@ export default function Home() {
                     <h3 className="text-2xl font-bold mb-2">Starter</h3>
                     <p className="text-gray-600 mb-4">Perfect for small businesses</p>
                     <div className="mb-4">
-                      <span className="text-4xl font-bold">R499</span>
-                      <span className="text-gray-600">/month</span>
+                      <span className="text-4xl font-bold">TBD</span>
                     </div>
                   </div>
                   <ul className="space-y-3 mb-6">
@@ -385,8 +384,7 @@ export default function Home() {
                     <h3 className="text-2xl font-bold mb-2">Professional</h3>
                     <p className="text-gray-600 mb-4">For growing businesses</p>
                     <div className="mb-4">
-                      <span className="text-4xl font-bold">R999</span>
-                      <span className="text-gray-600">/month</span>
+                      <span className="text-4xl font-bold">TBD</span>
                     </div>
                   </div>
                   <ul className="space-y-3 mb-6">
