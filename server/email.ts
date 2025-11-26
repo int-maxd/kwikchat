@@ -1,6 +1,6 @@
 import FormData from "form-data";
 import Mailgun from "mailgun.js";
-import { ConsultationRequest } from "@shared/schema";
+import { ConsultationRequest, Lead } from "@shared/schema";
 
 // Initialize Mailgun client
 const mailgun = new Mailgun(FormData);
@@ -392,6 +392,189 @@ export async function sendCustomerConfirmationEmail(
     return true;
   } catch (error) {
     console.error("Error sending confirmation email:", error);
+    return false;
+  }
+}
+
+/**
+ * Send a notification email about a new lead interest submission
+ */
+export async function sendLeadNotificationEmail(lead: Lead) {
+  if (!process.env.MAILGUN_API_KEY || !process.env.MAILGUN_DOMAIN) {
+    console.error("Mailgun credentials not found in environment variables");
+    return false;
+  }
+
+  try {
+    const mg = getMailgunClient();
+    const domain = getMailgunDomain();
+
+    const emailContent = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>New KwikChat Lead Interest</title>
+        <style>
+          body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+          }
+          .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+          }
+          .header {
+            background: #f0fdf4;
+            padding: 15px 20px;
+            border-radius: 8px 8px 0 0;
+            margin: -20px -20px 20px;
+            text-align: center;
+          }
+          .logo {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 0;
+            letter-spacing: -0.025em;
+          }
+          h1 {
+            color: #152434;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+          }
+          .section {
+            background: #f5f7fa;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border-left: 4px solid #22c55e;
+          }
+          .label {
+            color: #22c55e;
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+          }
+          .value {
+            margin: 0 0 10px;
+          }
+          .features-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+          }
+          .feature-tag {
+            background: #dcfce7;
+            color: #166534;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 14px;
+          }
+          .plan-badge {
+            display: inline-block;
+            background: #22c55e;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+          }
+          .footer {
+            text-align: center;
+            color: #888;
+            font-size: 14px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <div class="header">
+            <div class="logo">
+              <span style="color: #1f2937; font-weight: 700;">kwik</span><span style="color: #22c55e; font-weight: 800;">CHAT</span>
+            </div>
+          </div>
+          
+          <h1>New Lead Interest Submission</h1>
+          
+          <div class="section">
+            <span class="label">Contact Information</span>
+            <p class="value"><strong>Email:</strong> ${lead.email}</p>
+            ${lead.companyName ? `<p class="value"><strong>Company:</strong> ${lead.companyName}</p>` : ""}
+            ${lead.phone ? `<p class="value"><strong>Phone:</strong> ${lead.phone}</p>` : ""}
+            ${lead.role ? `<p class="value"><strong>Role:</strong> ${lead.role}</p>` : ""}
+          </div>
+          
+          <div class="section">
+            <span class="label">Interested Features</span>
+            <div class="features-list">
+              ${lead.interestedFeatures.split(", ").map(feature => `<span class="feature-tag">${feature}</span>`).join("")}
+            </div>
+          </div>
+          
+          ${lead.preferredPlan ? `
+          <div class="section">
+            <span class="label">Preferred Plan</span>
+            <span class="plan-badge">${lead.preferredPlan}</span>
+          </div>
+          ` : ""}
+          
+          ${lead.message ? `
+          <div class="section">
+            <span class="label">Additional Information</span>
+            <p class="value">${lead.message}</p>
+          </div>
+          ` : ""}
+          
+          <div class="section">
+            <span class="label">Submission Details</span>
+            <p class="value"><strong>Date Submitted:</strong> ${new Date(lead.createdAt).toLocaleString("en-ZA", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+              timeZone: "Africa/Johannesburg"
+            })}</p>
+          </div>
+          
+          <div class="footer">
+            <p>© ${new Date().getFullYear()} KwikChat. All rights reserved.</p>
+            <p>WhatsApp Business Automation Platform</p>
+          </div>
+        </div>
+      </body>
+      </html>
+    `;
+
+    const data = {
+      from: `KwikChat <noreply@${domain}>`,
+      to: "hello@kwikflow.co.za",
+      subject: `New KwikChat Lead: ${lead.email}${lead.companyName ? ` (${lead.companyName})` : ""}`,
+      html: emailContent,
+      "h:Reply-To": lead.email
+    };
+
+    console.log(`Sending lead notification email for: ${lead.email}`);
+
+    const response = await mg.messages.create(domain, data);
+    console.log("Lead notification email sent successfully:", response);
+    return true;
+  } catch (error) {
+    console.error("Error sending lead notification email:", error);
     return false;
   }
 }

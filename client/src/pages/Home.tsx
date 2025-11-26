@@ -89,8 +89,12 @@ export default function Home() {
     }));
   };
 
+  const validateEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const validatePhone = (phone: string) => !phone || /^(\+27|0)[6-8][0-9]{8}$/.test(phone.replace(/\s/g, ''));
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
     if (!formData.email || formData.selectedFeatures.length === 0) {
       toast({
         title: "Please fill in required fields",
@@ -99,6 +103,25 @@ export default function Home() {
       });
       return;
     }
+    
+    if (!validateEmail(formData.email)) {
+      toast({
+        title: "Invalid email",
+        description: "Please enter a valid email address.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    if (formData.phone && !validatePhone(formData.phone)) {
+      toast({
+        title: "Invalid phone number",
+        description: "Please enter a valid South African mobile number.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
     submitLeadMutation.mutate();
   };
 
@@ -481,18 +504,21 @@ export default function Home() {
                         <Input
                           id="email"
                           type="email"
-                          placeholder="you@company.com"
+                          placeholder="thabo@shoprite.co.za"
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           required
                           data-testid="input-lead-email"
                         />
+                        {formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) && (
+                          <p className="text-sm text-red-500">Please enter a valid email address</p>
+                        )}
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="companyName">Company Name</Label>
                         <Input
                           id="companyName"
-                          placeholder="Your Company"
+                          placeholder="Woolworths, Takealot, etc."
                           value={formData.companyName}
                           onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
                           data-testid="input-lead-company"
@@ -502,17 +528,20 @@ export default function Home() {
                         <Label htmlFor="phone">Phone Number</Label>
                         <Input
                           id="phone"
-                          placeholder="+27 12 345 6789"
+                          placeholder="+27 82 123 4567"
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           data-testid="input-lead-phone"
                         />
+                        {formData.phone && !/^(\+27|0)[6-8][0-9]{8}$/.test(formData.phone.replace(/\s/g, '')) && (
+                          <p className="text-sm text-red-500">Please enter a valid SA mobile number (e.g., +27 82 123 4567)</p>
+                        )}
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="role">Your Role</Label>
                         <Input
                           id="role"
-                          placeholder="e.g., Marketing Manager"
+                          placeholder="e.g., Operations Manager"
                           value={formData.role}
                           onChange={(e) => setFormData({ ...formData, role: e.target.value })}
                           data-testid="input-lead-role"
@@ -573,7 +602,7 @@ export default function Home() {
                       <Label htmlFor="message">Additional Information</Label>
                       <Textarea
                         id="message"
-                        placeholder="Tell us about your current setup, volume of messages, or any specific requirements..."
+                        placeholder="e.g., We're a retail chain with 50 stores needing to handle customer enquiries via WhatsApp..."
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                         rows={4}
