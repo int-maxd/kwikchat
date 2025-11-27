@@ -425,7 +425,7 @@ export async function sendLeadNotificationEmail(lead: Lead) {
       <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>New KwikChat Lead Interest</title>
+        <title>New kwikChat Lead Interest</title>
         <style>
           body {
             font-family: 'Arial', sans-serif;
@@ -562,8 +562,8 @@ export async function sendLeadNotificationEmail(lead: Lead) {
           </div>
           
           <div class="footer">
-            <p>© ${new Date().getFullYear()} KwikChat. All rights reserved.</p>
-            <p>WhatsApp Business Automation Platform</p>
+            <p>© ${new Date().getFullYear()} kwikChat. All rights reserved.</p>
+            <p>105 Club Avenue, Waterkloof Heights, Pretoria, 0181</p>
           </div>
         </div>
       </body>
@@ -571,20 +571,194 @@ export async function sendLeadNotificationEmail(lead: Lead) {
     `;
 
     const data = {
-      from: `KwikChat <noreply@${domain}>`,
-      to: "hello@kwikflow.co.za",
-      subject: `New KwikChat Lead: ${lead.email}${lead.companyName ? ` (${lead.companyName})` : ""}`,
+      from: `kwikChat <noreply@kwikchat.co.za>`,
+      to: "hello@kwikchat.co.za",
+      subject: `New kwikChat Lead: ${lead.email}${lead.companyName ? ` (${lead.companyName})` : ""}`,
       html: emailContent,
       "h:Reply-To": lead.email
     };
 
-    console.log(`Sending lead notification email for: ${lead.email}`);
+    console.log(`Sending lead notification email for: ${lead.email} using domain: ${domain}`);
 
     const response = await mg.messages.create(domain, data);
     console.log("Lead notification email sent successfully:", response);
     return true;
   } catch (error) {
     console.error("Error sending lead notification email:", error);
+    return false;
+  }
+}
+
+/**
+ * Send a confirmation email to the lead
+ */
+export async function sendLeadConfirmationEmail(lead: Lead) {
+  if (!process.env.MAILGUN_API_KEY || !process.env.MAILGUN_DOMAIN) {
+    console.error("Mailgun credentials not found in environment variables");
+    return false;
+  }
+
+  try {
+    const mg = getMailgunClient();
+    const domain = getMailgunDomain();
+
+    const emailContent = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Welcome to kwikChat</title>
+        <style>
+          body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+          }
+          .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+          }
+          .header {
+            background: #f0fdf4;
+            padding: 15px 20px;
+            border-radius: 8px 8px 0 0;
+            margin: -20px -20px 20px;
+            text-align: center;
+          }
+          .logo {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 0;
+            letter-spacing: -0.025em;
+          }
+          h1 {
+            color: #152434;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+          }
+          .welcome-message {
+            font-size: 16px;
+            background: #f0fdf4;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid #22c55e;
+          }
+          .value-props {
+            background: #f5f7fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+          }
+          .value-props ul {
+            margin: 0;
+            padding-left: 20px;
+          }
+          .value-props li {
+            margin-bottom: 8px;
+          }
+          .next-steps {
+            background: #fef3c7;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid #f59e0b;
+          }
+          .contact-info {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f5f7fa;
+            border-radius: 5px;
+            text-align: center;
+          }
+          .signature {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+          }
+          .footer {
+            text-align: center;
+            color: #888;
+            font-size: 14px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <div class="header">
+            <div class="logo">
+              <span style="color: #1f2937; font-weight: 700;">kwik</span><span style="color: #22c55e; font-weight: 800;">CHAT</span>
+            </div>
+          </div>
+          
+          <h1>Thanks for Your Interest!</h1>
+          
+          <div class="welcome-message">
+            <p>Hi${lead.companyName ? ` from ${lead.companyName}` : ''},</p>
+            <p>We've received your enquiry and will be in touch shortly.</p>
+          </div>
+          
+          <div class="value-props">
+            <p><strong>Here's what kwikChat can do for your business:</strong></p>
+            <ul>
+              <li><strong>Automate your WhatsApp</strong> — from enquiries and onboarding to quotes, orders, and status updates</li>
+              <li><strong>Take over anytime</strong> — jump into any conversation when the personal touch is needed</li>
+              <li><strong>Connect your tools</strong> — integrate with your CRM, accounting, or any external system</li>
+              <li><strong>Guided setup</strong> — our team handles the technical work so you don't have to</li>
+            </ul>
+          </div>
+          
+          <div class="next-steps">
+            <p><strong>What happens next?</strong></p>
+            <p>One of our team will reach out within 1 business day to schedule a quick call and understand your needs.</p>
+          </div>
+          
+          <div class="contact-info">
+            <p>Questions in the meantime? Just reply to this email or contact us:</p>
+            <p><strong>Email:</strong> hello@kwikchat.co.za</p>
+          </div>
+          
+          <div class="signature">
+            <p>Looking forward to chatting!</p>
+            <p>The kwikChat Team</p>
+          </div>
+          
+          <div class="footer">
+            <p>© ${new Date().getFullYear()} Kwik Group (Pty) Ltd trading as kwikChat</p>
+            <p>105 Club Avenue, Waterkloof Heights, Pretoria, 0181</p>
+          </div>
+        </div>
+      </body>
+      </html>
+    `;
+
+    const data = {
+      from: `kwikChat <noreply@kwikchat.co.za>`,
+      to: lead.email,
+      subject: "Thanks for your interest in kwikChat",
+      html: emailContent,
+      "h:Reply-To": "hello@kwikchat.co.za"
+    };
+
+    console.log(`Sending lead confirmation email to: ${lead.email} using domain: ${domain}`);
+
+    const response = await mg.messages.create(domain, data);
+    console.log("Lead confirmation email sent successfully:", response);
+    return true;
+  } catch (error) {
+    console.error("Error sending lead confirmation email:", error);
     return false;
   }
 }

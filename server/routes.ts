@@ -10,7 +10,7 @@ import {
 import { z } from "zod";
 import { ZodError } from "zod";
 import { fromZodError } from "zod-validation-error";
-import { sendLeadNotificationEmail } from "./email";
+import { sendLeadNotificationEmail, sendLeadConfirmationEmail } from "./email";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/api/conversations", async (req, res) => {
@@ -343,12 +343,20 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const validatedData = leadFormSchema.parse(req.body);
       const lead = await storage.createLead(validatedData);
       
-      // Send notification email
+      // Send notification email to admin
       try {
         const emailSent = await sendLeadNotificationEmail(lead);
         console.log("Lead notification email result:", emailSent);
       } catch (err) {
         console.error("Failed to send lead notification email:", err);
+      }
+      
+      // Send confirmation email to customer
+      try {
+        const confirmationSent = await sendLeadConfirmationEmail(lead);
+        console.log("Lead confirmation email result:", confirmationSent);
+      } catch (err) {
+        console.error("Failed to send lead confirmation email:", err);
       }
       
       res.status(201).json({

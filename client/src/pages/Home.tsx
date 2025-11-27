@@ -21,6 +21,7 @@ import {
   Settings,
   Send,
   Mail,
+  MapPin,
 } from 'lucide-react';
 
 const FEATURES = [
@@ -147,9 +148,9 @@ export default function Home() {
             </span>
           </div>
           <div className="flex items-center gap-4">
-            <a href="#features" className="text-sm font-medium hover:text-green-600 transition">Features</a>
-            <a href="#how-it-works" className="text-sm font-medium hover:text-green-600 transition">How It Works</a>
-            <a href="#pricing" className="text-sm font-medium hover:text-green-600 transition">Pricing</a>
+            <a href="#features" className="text-sm font-medium hover:text-green-600 transition hidden sm:block">Features</a>
+            <a href="#how-it-works" className="text-sm font-medium hover:text-green-600 transition hidden sm:block">How It Works</a>
+            <a href="#pricing" className="text-sm font-medium hover:text-green-600 transition hidden sm:block">Pricing</a>
             <a href="#contact">
               <Button data-testid="button-get-started-nav">Get Started</Button>
             </a>
@@ -189,8 +190,8 @@ export default function Home() {
         <section id="features" className="py-20 bg-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Automation + Human Touch</h2>
-              <p className="text-xl text-gray-600">Let automation handle the repetitive stuff while you focus on what matters</p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Run Your Business on WhatsApp</h2>
+              <p className="text-xl text-gray-600">Not just customer enquiries — automate your entire operation</p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -217,9 +218,9 @@ export default function Home() {
               <Card data-testid="card-feature-realtime">
                 <CardContent className="pt-6">
                   <Zap className="w-12 h-12 text-green-600 mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">One Dashboard</h3>
+                  <h3 className="text-xl font-semibold mb-2">Real-Time Updates</h3>
                   <p className="text-gray-600">
-                    See all your WhatsApp conversations in one place — no more scrolling through your phone all day
+                    Send instant notifications — job status updates for plumbers, order confirmations for retailers, appointment reminders for clinics. Keep customers informed automatically.
                   </p>
                 </CardContent>
               </Card>
@@ -227,9 +228,9 @@ export default function Home() {
               <Card data-testid="card-feature-sessions">
                 <CardContent className="pt-6">
                   <MessageSquare className="w-12 h-12 text-green-600 mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">Never Miss a Message</h3>
+                  <h3 className="text-xl font-semibold mb-2">Connect Your Tools</h3>
                   <p className="text-gray-600">
-                    Track every conversation with timestamps and history — know exactly where you left off
+                    Link to your CRM, accounting software, or any external system. Capture orders, log leads, update records — all triggered from WhatsApp conversations.
                   </p>
                 </CardContent>
               </Card>
@@ -652,12 +653,24 @@ export default function Home() {
 
       <footer className="border-t bg-white py-12">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex items-center gap-2">
-              <MessageCircle className="w-6 h-6 text-green-600" />
-              <span className="font-bold">
-                kwik<span className="text-green-600">CHAT</span>
-              </span>
+          <div className="flex flex-col md:flex-row justify-between items-start gap-8">
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <MessageCircle className="w-6 h-6 text-green-600" />
+                <span className="font-bold">
+                  kwik<span className="text-green-600">CHAT</span>
+                </span>
+              </div>
+              <div className="text-sm text-gray-600 space-y-2">
+                <a href="mailto:hello@kwikchat.co.za" className="flex items-center gap-2 hover:text-green-600 transition">
+                  <Mail className="w-4 h-4" />
+                  hello@kwikchat.co.za
+                </a>
+                <div className="flex items-start gap-2">
+                  <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                  <span>105 Club Avenue, Waterkloof Heights, Pretoria, 0181</span>
+                </div>
+              </div>
             </div>
             <div className="text-sm text-gray-600 text-center md:text-right">
               <p>© 2025 Kwik Group (Pty) Ltd trading as <span className="text-green-600 font-semibold">kwikChat</span></p>
