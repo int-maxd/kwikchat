@@ -133,7 +133,7 @@ export default function Home() {
   };
 
   useEffect(() => {
-    document.title = "WhatsApp Business Automation | KwikChat";
+    document.title = "WhatsApp Business Automation | kwikChat";
   }, []);
 
   return (
@@ -163,10 +163,10 @@ export default function Home() {
             <div className="max-w-4xl mx-auto text-center">
               <p className="text-green-600 font-semibold mb-4 uppercase tracking-wide">For businesses running on WhatsApp</p>
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                Automate Your Chats, Stay in Control
+                Your WhatsApp, Supercharged
               </h1>
               <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                Running your business on WhatsApp? Automate customer enquiries while keeping the ability to jump in and chat personally — all from one central dashboard.
+                Running your business on WhatsApp? Automate customer interactions — from enquiries and onboarding to quotes, status updates, and job notifications — while keeping the ability to jump in personally from one central dashboard.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="#contact">
@@ -181,7 +181,7 @@ export default function Home() {
                   </Button>
                 </a>
               </div>
-              <p className="mt-6 text-sm text-gray-500">No technical skills needed. Works with Meta's official WhatsApp Business API.</p>
+              <p className="mt-6 text-sm text-gray-500">No technical skills needed. Our team will guide you through setup and onboarding.</p>
             </div>
           </div>
         </section>
@@ -209,7 +209,7 @@ export default function Home() {
                   <Users className="w-12 h-12 text-green-600 mb-4" />
                   <h3 className="text-xl font-semibold mb-2">Jump In Anytime</h3>
                   <p className="text-gray-600">
-                    When a customer needs personal attention, take over the conversation instantly from your dashboard
+                    Need to give a customer the personal touch? Seamlessly take over any conversation from your dashboard with full context of what's been said
                   </p>
                 </CardContent>
               </Card>
@@ -239,7 +239,7 @@ export default function Home() {
                   <BarChart3 className="w-12 h-12 text-green-600 mb-4" />
                   <h3 className="text-xl font-semibold mb-2">Know Your Numbers</h3>
                   <p className="text-gray-600">
-                    See how many chats you're handling, response times, and what's working with your automation
+                    Track chat volumes, response times, resolution rates, and automation performance. Spot where customers get stuck and optimise your flows with real insights
                   </p>
                 </CardContent>
               </Card>
@@ -247,9 +247,9 @@ export default function Home() {
               <Card data-testid="card-feature-configuration">
                 <CardContent className="pt-6">
                   <Settings className="w-12 h-12 text-green-600 mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">No Coding Required</h3>
+                  <h3 className="text-xl font-semibold mb-2">Guided Setup</h3>
                   <p className="text-gray-600">
-                    Set up everything with simple clicks — if you can use WhatsApp, you can use KwikChat
+                    No technical skills needed — our team will walk you through the entire setup and onboarding process to get you up and running
                   </p>
                 </CardContent>
               </Card>
@@ -270,9 +270,9 @@ export default function Home() {
                   1
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">Connect Your WhatsApp Business Account</h3>
+                  <h3 className="text-xl font-semibold mb-2">We Connect Your WhatsApp Number</h3>
                   <p className="text-gray-600">
-                    Link your Meta Business WhatsApp account using the Cloud API. We'll guide you through the setup process.
+                    Our team will help you connect a new or existing WhatsApp Business number. We handle the technical setup so you don't have to.
                   </p>
                 </div>
               </div>
@@ -282,9 +282,9 @@ export default function Home() {
                   2
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">Configure Automation Rules</h3>
+                  <h3 className="text-xl font-semibold mb-2">We Build Your Workflows Together</h3>
                   <p className="text-gray-600">
-                    Create triggers and automated responses for common customer inquiries. Set up welcome messages, business hours responses, and more.
+                    During onboarding, we'll work with you to set up your automated flows — welcome messages, FAQs, onboarding sequences, quote requests, and more.
                   </p>
                 </div>
               </div>
@@ -294,9 +294,9 @@ export default function Home() {
                   3
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">Manage Conversations</h3>
+                  <h3 className="text-xl font-semibold mb-2">You're In Control</h3>
                   <p className="text-gray-600">
-                    Monitor all conversations in one dashboard. Jump in to provide human support when needed, or let automation handle routine inquiries.
+                    Monitor all conversations from your dashboard. Let automation handle the routine while you jump in whenever a personal touch is needed.
                   </p>
                 </div>
               </div>
@@ -348,15 +348,19 @@ export default function Home() {
                   <ul className="space-y-3 mb-6">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">New WhatsApp Business number</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
                       <span className="text-sm">Up to 1,000 messages/month</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">3 automation rules</span>
+                      <span className="text-sm">3 automated workflows</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">1 user account</span>
+                      <span className="text-sm">1 agent login</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
@@ -390,15 +394,19 @@ export default function Home() {
                   <ul className="space-y-3 mb-6">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Use your existing WhatsApp number</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
                       <span className="text-sm">Up to 5,000 messages/month</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Unlimited automation rules</span>
+                      <span className="text-sm">Unlimited automated workflows</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">3 user accounts</span>
+                      <span className="text-sm">Multiple agent logins</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
@@ -433,15 +441,19 @@ export default function Home() {
                   <ul className="space-y-3 mb-6">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Use your existing WhatsApp number</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
                       <span className="text-sm">Unlimited messages</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Unlimited automation rules</span>
+                      <span className="text-sm">Unlimited automated workflows</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Unlimited users</span>
+                      <span className="text-sm">Unlimited agent logins</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
@@ -470,7 +482,7 @@ export default function Home() {
             </div>
 
             <div className="mt-12 text-center text-sm text-gray-600">
-              <p>All plans include WhatsApp Cloud API integration and secure data storage.</p>
+              <p>All plans include a once-off setup and onboarding fee.</p>
               <p className="mt-2">Need a custom solution? <a href="#contact" className="text-green-600 hover:underline">Contact us</a> for tailored pricing.</p>
             </div>
           </div>
@@ -498,7 +510,7 @@ export default function Home() {
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Automate Your WhatsApp?</h2>
-                <p className="text-xl text-gray-600">Tell us about your business and we'll show you how KwikChat can help</p>
+                <p className="text-xl text-gray-600">Tell us about your business and we'll show you how <span className="text-green-600 font-semibold">kwikChat</span> can help</p>
               </div>
 
               <Card>
@@ -647,8 +659,9 @@ export default function Home() {
                 kwik<span className="text-green-600">CHAT</span>
               </span>
             </div>
-            <div className="text-sm text-gray-600">
-              © 2025 KwikChat. All rights reserved.
+            <div className="text-sm text-gray-600 text-center md:text-right">
+              <p>© 2025 Kwik Group (Pty) Ltd trading as <span className="text-green-600 font-semibold">kwikChat</span></p>
+              <p className="mt-1">All rights reserved.</p>
             </div>
           </div>
         </div>
