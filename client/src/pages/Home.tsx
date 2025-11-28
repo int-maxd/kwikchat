@@ -39,6 +39,7 @@ const FEATURES = [
 export default function Home() {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
+    contactName: '',
     email: '',
     companyName: '',
     phone: '',
@@ -51,6 +52,7 @@ export default function Home() {
   const submitLeadMutation = useMutation({
     mutationFn: async () => {
       return apiRequest('POST', '/api/leads', {
+        contactName: formData.contactName || null,
         email: formData.email,
         companyName: formData.companyName || null,
         phone: formData.phone || null,
@@ -66,6 +68,7 @@ export default function Home() {
         description: "We'll be in touch within 24 hours.",
       });
       setFormData({
+        contactName: '',
         email: '',
         companyName: '',
         phone: '',
@@ -519,6 +522,16 @@ export default function Home() {
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-2">
+                        <Label htmlFor="contactName">Your Name</Label>
+                        <Input
+                          id="contactName"
+                          placeholder="Thabo Mbeki"
+                          value={formData.contactName}
+                          onChange={(e) => setFormData({ ...formData, contactName: e.target.value })}
+                          data-testid="input-lead-name"
+                        />
+                      </div>
+                      <div className="space-y-2">
                         <Label htmlFor="email">Email Address *</Label>
                         <Input
                           id="email"
@@ -574,7 +587,7 @@ export default function Home() {
                         {FEATURES.map((feature) => (
                           <label
                             key={feature.id}
-                            className={`flex items-start space-x-3 p-3 border rounded-lg cursor-pointer transition-colors ${
+                            className={`flex items-center space-x-3 p-3 border rounded-lg cursor-pointer transition-colors ${
                               formData.selectedFeatures.includes(feature.id)
                                 ? 'border-green-600 bg-green-50'
                                 : 'border-gray-200 hover:border-gray-300'
@@ -584,6 +597,7 @@ export default function Home() {
                             <Checkbox
                               checked={formData.selectedFeatures.includes(feature.id)}
                               onCheckedChange={() => handleFeatureToggle(feature.id)}
+                              className="flex-shrink-0"
                             />
                             <div>
                               <div className="font-medium text-sm">{feature.label}</div>

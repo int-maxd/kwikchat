@@ -48,6 +48,7 @@ export const automationRules = pgTable("automation_rules", {
 
 export const leads = pgTable("leads", {
   id: serial("id").primaryKey(),
+  contactName: text("contact_name"),
   email: text("email").notNull(),
   companyName: text("company_name"),
   phone: text("phone"),

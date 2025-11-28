@@ -522,6 +522,7 @@ export async function sendLeadNotificationEmail(lead: Lead) {
           
           <div class="section">
             <span class="label">Contact Information</span>
+            ${lead.contactName ? `<p class="value"><strong>Name:</strong> ${lead.contactName}</p>` : ""}
             <p class="value"><strong>Email:</strong> ${lead.email}</p>
             ${lead.companyName ? `<p class="value"><strong>Company:</strong> ${lead.companyName}</p>` : ""}
             ${lead.phone ? `<p class="value"><strong>Phone:</strong> ${lead.phone}</p>` : ""}
@@ -573,7 +574,7 @@ export async function sendLeadNotificationEmail(lead: Lead) {
     const data = {
       from: `kwikChat <noreply@kwikchat.co.za>`,
       to: "hello@kwikchat.co.za",
-      subject: `New kwikChat Lead: ${lead.email}${lead.companyName ? ` (${lead.companyName})` : ""}`,
+      subject: `New kwikChat Lead: ${lead.contactName || lead.email}${lead.companyName ? ` (${lead.companyName})` : ""}`,
       html: emailContent,
       "h:Reply-To": lead.email
     };
@@ -602,13 +603,15 @@ export async function sendLeadConfirmationEmail(lead: Lead) {
     const mg = getMailgunClient();
     const domain = getMailgunDomain();
 
+    const greeting = lead.contactName ? `Hi ${lead.contactName}` : (lead.companyName ? `Hi from ${lead.companyName}` : 'Hi there');
+    
     const emailContent = `
       <!DOCTYPE html>
       <html>
       <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Welcome to kwikChat</title>
+        <title>Thanks for Your Interest in kwikChat</title>
         <style>
           body {
             font-family: 'Arial', sans-serif;
@@ -645,19 +648,21 @@ export async function sendLeadConfirmationEmail(lead: Lead) {
             margin-bottom: 20px;
             font-size: 24px;
           }
-          .welcome-message {
-            font-size: 16px;
-            background: #f0fdf4;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            border-left: 4px solid #22c55e;
-          }
-          .value-props {
+          .section {
             background: #f5f7fa;
             padding: 15px;
-            border-radius: 5px;
             margin-bottom: 20px;
+            border-radius: 5px;
+            border-left: 4px solid #22c55e;
+          }
+          .label {
+            color: #22c55e;
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+          }
+          .value {
+            margin: 0 0 10px;
           }
           .value-props ul {
             margin: 0;
@@ -672,18 +677,6 @@ export async function sendLeadConfirmationEmail(lead: Lead) {
             border-radius: 5px;
             margin-bottom: 20px;
             border-left: 4px solid #f59e0b;
-          }
-          .contact-info {
-            margin-top: 20px;
-            padding: 15px;
-            background: #f5f7fa;
-            border-radius: 5px;
-            text-align: center;
-          }
-          .signature {
-            margin-top: 20px;
-            padding-top: 15px;
-            border-top: 1px solid #eee;
           }
           .footer {
             text-align: center;
@@ -705,13 +698,13 @@ export async function sendLeadConfirmationEmail(lead: Lead) {
           
           <h1>Thanks for Your Interest!</h1>
           
-          <div class="welcome-message">
-            <p>Hi${lead.companyName ? ` from ${lead.companyName}` : ''},</p>
-            <p>We've received your enquiry and will be in touch shortly.</p>
+          <div class="section">
+            <p class="value">${greeting},</p>
+            <p class="value">We've received your enquiry and will be in touch shortly.</p>
           </div>
           
-          <div class="value-props">
-            <p><strong>Here's what kwikChat can do for your business:</strong></p>
+          <div class="section value-props">
+            <span class="label">Here's what kwikChat can do for your business</span>
             <ul>
               <li><strong>Automate your WhatsApp</strong> — from enquiries and onboarding to quotes, orders, and status updates</li>
               <li><strong>Take over anytime</strong> — jump into any conversation when the personal touch is needed</li>
@@ -721,18 +714,18 @@ export async function sendLeadConfirmationEmail(lead: Lead) {
           </div>
           
           <div class="next-steps">
-            <p><strong>What happens next?</strong></p>
-            <p>One of our team will reach out within 1 business day to schedule a quick call and understand your needs.</p>
+            <span class="label" style="color: #b45309;">What happens next?</span>
+            <p class="value">One of our team will reach out within 1 business day to schedule a quick call and understand your needs.</p>
           </div>
           
-          <div class="contact-info">
-            <p>Questions in the meantime? Just reply to this email or contact us:</p>
-            <p><strong>Email:</strong> hello@kwikchat.co.za</p>
+          <div class="section">
+            <span class="label">Questions in the meantime?</span>
+            <p class="value">Just reply to this email or contact us at <strong>hello@kwikchat.co.za</strong></p>
           </div>
           
-          <div class="signature">
-            <p>Looking forward to chatting!</p>
-            <p>The kwikChat Team</p>
+          <div class="section">
+            <p class="value">Looking forward to chatting!</p>
+            <p class="value" style="margin-bottom: 0;"><strong>The kwikChat Team</strong></p>
           </div>
           
           <div class="footer">
