@@ -603,7 +603,7 @@ export async function sendLeadConfirmationEmail(lead: Lead) {
     const mg = getMailgunClient();
     const domain = getMailgunDomain();
 
-    const greeting = lead.contactName ? `Hi ${lead.contactName}` : (lead.companyName ? `Hi from ${lead.companyName}` : 'Hi there');
+    const greeting = lead.contactName ? `Hi ${lead.contactName}` : (lead.companyName ? `Hi there from ${lead.companyName}` : 'Hi there');
     
     const emailContent = `
       <!DOCTYPE html>
@@ -664,19 +664,18 @@ export async function sendLeadConfirmationEmail(lead: Lead) {
           .value {
             margin: 0 0 10px;
           }
-          .value-props ul {
-            margin: 0;
-            padding-left: 20px;
+          .features-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
           }
-          .value-props li {
-            margin-bottom: 8px;
-          }
-          .next-steps {
-            background: #fef3c7;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            border-left: 4px solid #f59e0b;
+          .feature-tag {
+            background: #dcfce7;
+            color: #166534;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 14px;
           }
           .footer {
             text-align: center;
@@ -699,28 +698,33 @@ export async function sendLeadConfirmationEmail(lead: Lead) {
           <h1>Thanks for Your Interest!</h1>
           
           <div class="section">
-            <p class="value">${greeting},</p>
-            <p class="value">We've received your enquiry and will be in touch shortly.</p>
+            <span class="label">Hello${lead.contactName ? `, ${lead.contactName}` : ''}!</span>
+            <p class="value">We've received your enquiry${lead.companyName ? ` from ${lead.companyName}` : ''} and will be in touch shortly.</p>
           </div>
           
-          <div class="section value-props">
-            <span class="label">Here's what kwikChat can do for your business</span>
-            <ul>
-              <li><strong>Automate your WhatsApp</strong> — from enquiries and onboarding to quotes, orders, and status updates</li>
-              <li><strong>Take over anytime</strong> — jump into any conversation when the personal touch is needed</li>
-              <li><strong>Connect your tools</strong> — integrate with your CRM, accounting, or any external system</li>
-              <li><strong>Guided setup</strong> — our team handles the technical work so you don't have to</li>
-            </ul>
+          <div class="section">
+            <span class="label">You're interested in</span>
+            <div class="features-list">
+              ${lead.interestedFeatures.split(", ").map(feature => `<span class="feature-tag">${feature}</span>`).join("")}
+            </div>
           </div>
           
-          <div class="next-steps">
-            <span class="label" style="color: #b45309;">What happens next?</span>
-            <p class="value">One of our team will reach out within 1 business day to schedule a quick call and understand your needs.</p>
+          <div class="section">
+            <span class="label">What kwikChat can do for your business</span>
+            <p class="value"><strong>Automate your WhatsApp</strong> — from enquiries and onboarding to quotes, orders, and status updates</p>
+            <p class="value"><strong>Take over anytime</strong> — jump into any conversation when the personal touch is needed</p>
+            <p class="value"><strong>Connect your tools</strong> — integrate with your CRM, accounting, or any external system</p>
+            <p class="value" style="margin-bottom: 0;"><strong>Guided setup</strong> — our team handles the technical work so you don't have to</p>
+          </div>
+          
+          <div class="section">
+            <span class="label">What happens next?</span>
+            <p class="value" style="margin-bottom: 0;">One of our team will reach out within 1 business day to schedule a quick call and understand your needs.</p>
           </div>
           
           <div class="section">
             <span class="label">Questions in the meantime?</span>
-            <p class="value">Just reply to this email or contact us at <strong>hello@kwikchat.co.za</strong></p>
+            <p class="value" style="margin-bottom: 0;">Just reply to this email or contact us at <strong>hello@kwikchat.co.za</strong></p>
           </div>
           
           <div class="section">
