@@ -346,7 +346,8 @@ export default function Home() {
                     <h3 className="text-2xl font-bold mb-2">Starter</h3>
                     <p className="text-gray-600 mb-4">Perfect for small businesses</p>
                     <div className="mb-4">
-                      <span className="text-4xl font-bold">TBD</span>
+                      <span className="text-4xl font-bold">R499</span>
+                      <span className="text-gray-600">/month</span>
                     </div>
                   </div>
                   <ul className="space-y-3 mb-6">
@@ -392,7 +393,8 @@ export default function Home() {
                     <h3 className="text-2xl font-bold mb-2">Professional</h3>
                     <p className="text-gray-600 mb-4">For growing businesses</p>
                     <div className="mb-4">
-                      <span className="text-4xl font-bold">TBD</span>
+                      <span className="text-4xl font-bold">R999</span>
+                      <span className="text-gray-600">/month</span>
                     </div>
                   </div>
                   <ul className="space-y-3 mb-6">
@@ -486,7 +488,7 @@ export default function Home() {
             </div>
 
             <div className="mt-12 text-center text-sm text-gray-600">
-              <p>All plans include a once-off setup and onboarding fee.</p>
+              <p>All plans include a once-off R5,000 setup and onboarding fee. Additional messages charged separately.</p>
               <p className="mt-2">Need a custom solution? <a href="#contact" className="text-green-600 hover:underline">Contact us</a> for tailored pricing.</p>
             </div>
           </div>
