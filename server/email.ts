@@ -522,7 +522,7 @@ export async function sendLeadNotificationEmail(lead: Lead) {
           
           <div class="section">
             <span class="label">Contact Information</span>
-            ${lead.contactName ? `<p class="value"><strong>Name:</strong> ${lead.contactName}</p>` : ""}
+            <p class="value"><strong>Name:</strong> ${lead.contactName || "Not provided"}</p>
             <p class="value"><strong>Email:</strong> ${lead.email}</p>
             ${lead.companyName ? `<p class="value"><strong>Company:</strong> ${lead.companyName}</p>` : ""}
             ${lead.phone ? `<p class="value"><strong>Phone:</strong> ${lead.phone}</p>` : ""}
