@@ -184,11 +184,24 @@ export default function Home() {
     <div className="min-h-screen flex flex-col">
       <nav className="border-b bg-white sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <MessageCircle className="w-8 h-8 text-green-600" />
-            <span className="text-2xl font-bold">
-              kwik<span className="text-green-600">CHAT</span>
-            </span>
+          <div className="flex flex-col">
+            <div className="flex items-center gap-2">
+              <MessageCircle className="w-8 h-8 text-green-600" />
+              <span className="text-2xl font-bold">
+                kwik<span className="text-green-600">CHAT</span>
+              </span>
+            </div>
+            <p className="text-[10px] text-gray-400 pl-10">
+              Powered by{" "}
+              <a
+                href="https://intentio.co.za"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-green-600 transition-colors underline underline-offset-2"
+              >
+                Intentio Software
+              </a>
+            </p>
           </div>
           <div className="flex items-center gap-4">
             <a href="#features" className="text-sm font-medium hover:text-green-600 transition hidden sm:block">Features</a>
