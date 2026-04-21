@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -96,6 +96,35 @@ export default function Home() {
     }));
   };
 
+  const chatRef = useRef<HTMLDivElement>(null);
+  const [visibleMessages, setVisibleMessages] = useState(0);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisibleMessages(0);
+          observer.disconnect();
+          const messages = [
+            { delay: 300 },
+            { delay: 1200 },
+            { delay: 2200 },
+            { delay: 3300 },
+            { delay: 4200 },
+            { delay: 5100 },
+            { delay: 6000 },
+          ];
+          messages.forEach(({ delay }, i) => {
+            setTimeout(() => setVisibleMessages(i + 1), delay);
+          });
+        }
+      },
+      { threshold: 0.3 }
+    );
+    if (chatRef.current) observer.observe(chatRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   const validateEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   const validatePhone = (phone: string) => {
     if (!phone) return true;
@@ -186,6 +215,87 @@ export default function Home() {
                 </a>
               </div>
               <p className="mt-6 text-sm text-gray-500">No technical skills needed. Our team will guide you through setup and onboarding.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-20 bg-white overflow-hidden">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+              <div className="flex-1 text-center lg:text-left">
+                <p className="text-green-600 font-semibold mb-3 uppercase tracking-wide text-sm">See it in action</p>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Watch automation work in real time</h2>
+                <p className="text-gray-600 text-lg mb-6">
+                  A customer reaches out. Your kwikChat bot handles it instantly — no waiting, no manual replies, no missed leads.
+                </p>
+                <ul className="space-y-3 text-sm text-gray-600">
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" /> Responds instantly, 24/7</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" /> Collects info and books appointments</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" /> Sends reference numbers automatically</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" /> You can jump in anytime from the dashboard</li>
+                </ul>
+              </div>
+
+              <div className="flex-1 flex justify-center" ref={chatRef}>
+                <div className="w-72 rounded-3xl shadow-2xl overflow-hidden border border-gray-200" style={{ background: '#ece5dd' }}>
+                  <div className="flex items-center gap-3 px-4 py-3" style={{ background: '#075e54' }}>
+                    <div className="w-9 h-9 rounded-full bg-green-300 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                      kC
+                    </div>
+                    <div>
+                      <p className="text-white font-semibold text-sm leading-none">kwikChat Bot</p>
+                      <p className="text-green-200 text-xs mt-0.5">online</p>
+                    </div>
+                  </div>
+
+                  <div className="px-3 py-4 space-y-2 min-h-80" style={{ background: '#ece5dd' }}>
+                    {[
+                      { from: 'customer', text: 'Hi, I need a quote for a burst pipe 🔧' },
+                      { from: 'bot', text: 'Hi there! 👋 I\'m here to help. What area are you based in?' },
+                      { from: 'customer', text: 'Pretoria East' },
+                      { from: 'bot', text: 'Got it! What\'s the best time for one of our plumbers to call you?' },
+                      { from: 'customer', text: 'Tomorrow morning please' },
+                      { from: 'bot', text: '✅ Booking confirmed! A plumber will contact you tomorrow between 8–10am.' },
+                      { from: 'bot', text: 'Your reference number is #PL-2847. We\'ll keep you updated via WhatsApp!' },
+                    ].map((msg, i) => (
+                      <div
+                        key={i}
+                        className={`flex ${msg.from === 'customer' ? 'justify-end' : 'justify-start'} transition-all duration-500`}
+                        style={{
+                          opacity: visibleMessages > i ? 1 : 0,
+                          transform: visibleMessages > i ? 'translateY(0)' : 'translateY(10px)',
+                        }}
+                      >
+                        <div
+                          className={`max-w-[85%] px-3 py-2 rounded-2xl text-sm shadow-sm leading-snug ${
+                            msg.from === 'customer'
+                              ? 'text-gray-800 rounded-tr-sm'
+                              : 'text-gray-800 rounded-tl-sm'
+                          }`}
+                          style={{
+                            background: msg.from === 'customer' ? '#dcf8c6' : '#ffffff',
+                          }}
+                        >
+                          {msg.text}
+                          <span className="block text-right text-gray-400 text-xs mt-0.5">
+                            {msg.from === 'bot' ? '🤖' : ''} {new Date().toLocaleTimeString('en-ZA', { hour: '2-digit', minute: '2-digit' })}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+
+                    {visibleMessages > 0 && visibleMessages < 7 && (
+                      <div className="flex justify-start">
+                        <div className="bg-white px-4 py-2 rounded-2xl rounded-tl-sm shadow-sm flex gap-1 items-center">
+                          <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                          <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                          <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
