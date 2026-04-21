@@ -691,6 +691,17 @@ export default function Home() {
             <div className="text-sm text-gray-600 text-center md:text-right">
               <p>© 2025 Kwik Group (Pty) Ltd trading as <span className="text-green-600 font-semibold">kwikChat</span></p>
               <p className="mt-1">All rights reserved.</p>
+              <p className="mt-3 text-xs text-gray-400">
+                Powered by{" "}
+                <a
+                  href="https://intentio.co.za"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-green-600 transition-colors underline underline-offset-2"
+                >
+                  Intentio Software
+                </a>
+              </p>
             </div>
           </div>
         </div>
