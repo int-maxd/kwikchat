@@ -248,31 +248,16 @@ export default function Home() {
               </div>
 
               <div className="flex-1 flex justify-center" ref={chatRef}>
-                {/* Phone frame */}
                 <div
-                  className="relative flex flex-col rounded-[2.5rem] border-4 border-gray-900 shadow-2xl overflow-hidden bg-gray-900"
+                  className="flex flex-col rounded-3xl shadow-2xl overflow-hidden border border-gray-200"
                   style={{ width: '300px', aspectRatio: '9 / 19' }}
                 >
-                  {/* Status bar */}
-                  <div className="flex justify-between items-center px-5 pt-2 pb-1 bg-gray-900 text-white text-[10px] flex-shrink-0">
-                    <span className="font-medium">9:41</span>
-                    <div className="flex items-center gap-1">
-                      <span>▲▲▲</span>
-                      <span>WiFi</span>
-                      <span>🔋</span>
-                    </div>
-                  </div>
-
                   {/* WhatsApp header */}
-                  <div className="flex items-center gap-2 px-3 py-2 flex-shrink-0" style={{ background: '#075e54' }}>
-                    <div className="w-8 h-8 rounded-full bg-green-300 flex items-center justify-center text-white font-bold text-xs flex-shrink-0">kC</div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-white font-semibold text-xs leading-none">kwikChat Bot</p>
-                      <p className="text-green-200 text-[10px] mt-0.5">online</p>
-                    </div>
-                    <div className="flex gap-2 text-white opacity-70">
-                      <Send className="w-3.5 h-3.5" />
-                      <Settings className="w-3.5 h-3.5" />
+                  <div className="flex items-center gap-3 px-4 py-3 flex-shrink-0" style={{ background: '#075e54' }}>
+                    <div className="w-9 h-9 rounded-full bg-green-300 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">kC</div>
+                    <div>
+                      <p className="text-white font-semibold text-sm leading-none">kwikChat Bot</p>
+                      <p className="text-green-200 text-xs mt-0.5">online</p>
                     </div>
                   </div>
 
@@ -379,18 +364,6 @@ export default function Home() {
                     )}
                   </div>
 
-                  {/* Input bar */}
-                  <div className="flex items-center gap-1.5 px-2 py-2 flex-shrink-0" style={{ background: '#f0f0f0' }}>
-                    <div className="flex-1 bg-white rounded-full px-3 py-1.5 text-gray-400 text-[11px]">Message</div>
-                    <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: '#25d366' }}>
-                      <Send className="w-3 h-3 text-white" />
-                    </div>
-                  </div>
-
-                  {/* Home indicator */}
-                  <div className="flex justify-center pb-1.5 pt-1 flex-shrink-0 bg-gray-900">
-                    <div className="w-20 h-1 bg-white/30 rounded-full" />
-                  </div>
                 </div>
               </div>
             </div>
