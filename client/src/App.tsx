@@ -8,6 +8,8 @@ import Home from "@/pages/Home";
 import Dashboard from "@/pages/Dashboard";
 import Conversations from "@/pages/Conversations";
 import Automation from "@/pages/Automation";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import TermsOfService from "@/pages/TermsOfService";
 import LoadingScreen from "@/components/LoadingScreen";
 import { useEffect } from "react";
 import { initGA } from "./lib/analytics";
@@ -24,6 +26,8 @@ function Router() {
       <Route path="/conversations" component={Conversations} />
       <Route path="/conversations/:id" component={Conversations} />
       <Route path="/automation" component={Automation} />
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
+      <Route path="/terms-of-service" component={TermsOfService} />
       {/* Fallback to 404 */}
       <Route component={NotFound} />
     </Switch>

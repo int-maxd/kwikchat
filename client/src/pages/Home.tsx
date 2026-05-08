@@ -884,7 +884,11 @@ export default function Home() {
             <div className="text-sm text-gray-600 text-center md:text-right">
               <p>© {new Date().getFullYear()} Kwik Group (Pty) Ltd trading as <span className="text-green-600 font-semibold">kwikChat</span></p>
               <p className="mt-1">All rights reserved.</p>
-              <p className="mt-3 text-xs text-gray-400">
+              <div className="mt-3 flex gap-4 justify-center md:justify-end text-xs text-gray-500">
+                <a href="/privacy-policy" className="hover:text-green-600 underline underline-offset-2 transition-colors">Privacy Policy</a>
+                <a href="/terms-of-service" className="hover:text-green-600 underline underline-offset-2 transition-colors">Terms of Service</a>
+              </div>
+              <p className="mt-2 text-xs text-gray-400">
                 Powered by{" "}
                 <a
                   href="https://intentio.co.za"
