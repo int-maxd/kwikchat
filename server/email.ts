@@ -712,7 +712,7 @@ export async function sendLeadConfirmationEmail(lead: Lead) {
           <div class="section">
             <span class="label">What kwikChat can do for your business</span>
             <p class="value"><strong>Automate your WhatsApp</strong> — from enquiries and onboarding to quotes, orders, and status updates</p>
-            <p class="value"><strong>Take over anytime</strong> — jump into any conversation when the personal touch is needed</p>
+            <p class="value"><strong>Manage conversations anytime</strong> — your team can step in to manage any conversation when a personal touch is needed</p>
             <p class="value"><strong>Connect your tools</strong> — integrate with your CRM, accounting, or any external system</p>
             <p class="value" style="margin-bottom: 0;"><strong>Guided setup</strong> — our team handles the technical work so you don't have to</p>
           </div>

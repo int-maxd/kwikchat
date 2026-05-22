@@ -218,12 +218,12 @@ export default function Home() {
         <section className="py-20 md:py-32 bg-gradient-to-b from-green-50 to-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <p className="text-green-600 font-semibold mb-4 uppercase tracking-wide">For businesses running on WhatsApp</p>
+              <p className="text-green-600 font-semibold mb-4 uppercase tracking-wide">WhatsApp Business Customer Communication Platform</p>
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                Your WhatsApp, Supercharged
+                Automate Your WhatsApp Business
               </h1>
               <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                Running your business on WhatsApp? Automate customer interactions — from enquiries and onboarding to quotes, status updates, and job notifications — while keeping the ability to jump in personally from one central dashboard.
+                Connect your WhatsApp Business Account and let kwikChat automate customer interactions — from enquiries and onboarding to quotes, status updates, and job notifications — while your team stays in full control from one central dashboard.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="#contact">
@@ -256,7 +256,7 @@ export default function Home() {
                   <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" /> Responds instantly, 24/7</li>
                   <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" /> Collects info and books appointments</li>
                   <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" /> Sends reference numbers automatically</li>
-                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" /> You can jump in anytime from the dashboard</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" /> Your team can manage any conversation from the dashboard</li>
                 </ul>
               </div>
 
@@ -404,9 +404,9 @@ export default function Home() {
               <Card data-testid="card-feature-human">
                 <CardContent className="pt-6">
                   <Users className="w-12 h-12 text-green-600 mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">Jump In Anytime</h3>
+                  <h3 className="text-xl font-semibold mb-2">Manage Conversations Anytime</h3>
                   <p className="text-gray-600">
-                    Need to give a customer the personal touch? Seamlessly take over any conversation from your dashboard with full context of what's been said
+                    Need to add a personal touch? Your team can step in and manage any conversation on behalf of your business, with full context of every automated exchange.
                   </p>
                 </CardContent>
               </Card>
@@ -467,9 +467,9 @@ export default function Home() {
                   1
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">We Connect Your WhatsApp Number</h3>
+                  <h3 className="text-xl font-semibold mb-2">Connect &amp; Authorise Your WhatsApp Business Account</h3>
                   <p className="text-gray-600">
-                    Our team will help you connect a new or existing WhatsApp Business number. We handle the technical setup so you don't have to.
+                    Authorise kwikChat to manage communications on your behalf — using a new or existing WhatsApp Business number. You remain the owner of your WhatsApp Business Account at all times.
                   </p>
                 </div>
               </div>
@@ -491,9 +491,9 @@ export default function Home() {
                   3
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">You're In Control</h3>
+                  <h3 className="text-xl font-semibold mb-2">You're Always In Control</h3>
                   <p className="text-gray-600">
-                    Monitor all conversations from your dashboard. Let automation handle the routine while you jump in whenever a personal touch is needed.
+                    Monitor all conversations from your dashboard. Let automation handle the routine while your team manages conversations directly whenever needed — on behalf of your business.
                   </p>
                 </div>
               </div>
@@ -862,33 +862,22 @@ export default function Home() {
 
       <footer className="border-t bg-white py-12">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-start gap-8">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
+          <div className="flex flex-col md:flex-row justify-between items-start gap-10">
+
+            <div className="max-w-xs">
+              <div className="flex items-center gap-2 mb-1">
                 <MessageCircle className="w-6 h-6 text-green-600" />
-                <span className="font-bold">
+                <span className="font-bold text-lg">
                   kwik<span className="text-green-600">CHAT</span>
                 </span>
               </div>
-              <div className="text-sm text-gray-600 space-y-2">
-                <a href="mailto:hello@kwikchat.co.za" className="flex items-center gap-2 hover:text-green-600 transition">
-                  <Mail className="w-4 h-4" />
-                  hello@kwikchat.co.za
-                </a>
-                <div className="flex items-start gap-2">
-                  <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                  <span>105 Club Avenue, Waterkloof Heights, Pretoria, 0181</span>
-                </div>
-              </div>
-            </div>
-            <div className="text-sm text-gray-600 text-center md:text-right">
-              <p>© {new Date().getFullYear()} Kwik Group (Pty) Ltd trading as <span className="text-green-600 font-semibold">kwikChat</span></p>
-              <p className="mt-1">All rights reserved.</p>
-              <div className="mt-3 flex gap-4 justify-center md:justify-end text-xs text-gray-500">
-                <a href="/privacy-policy" className="hover:text-green-600 underline underline-offset-2 transition-colors">Privacy Policy</a>
-                <a href="/terms-of-service" className="hover:text-green-600 underline underline-offset-2 transition-colors">Terms of Service</a>
-              </div>
-              <p className="mt-2 text-xs text-gray-400">
+              <p className="text-xs text-gray-400 mb-3">
+                Provided by <span className="font-semibold text-gray-600">Kwik Group (Pty) Ltd</span>
+              </p>
+              <p className="text-xs text-gray-500 mb-4 leading-relaxed">
+                A WhatsApp Business customer communication platform that helps businesses automate and manage their customer conversations via the WhatsApp Business API.
+              </p>
+              <p className="text-[10px] text-gray-400">
                 Powered by{" "}
                 <a
                   href="https://intentio.co.za"
@@ -900,6 +889,33 @@ export default function Home() {
                 </a>
               </p>
             </div>
+
+            <div className="text-sm text-gray-600 space-y-2">
+              <p className="font-semibold text-gray-800 mb-3">Contact</p>
+              <a href="mailto:hello@kwikchat.co.za" className="flex items-center gap-2 hover:text-green-600 transition">
+                <Mail className="w-4 h-4 flex-shrink-0" />
+                hello@kwikchat.co.za
+              </a>
+              <div className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                <span>105 Club Avenue, Waterkloof Heights,<br />Pretoria, 0181, South Africa</span>
+              </div>
+            </div>
+
+            <div className="text-sm text-gray-600">
+              <p className="font-semibold text-gray-800 mb-3">Legal</p>
+              <div className="flex flex-col gap-2 text-sm">
+                <a href="/privacy-policy" className="hover:text-green-600 underline underline-offset-2 transition-colors">Privacy Policy</a>
+                <a href="/terms-of-service" className="hover:text-green-600 underline underline-offset-2 transition-colors">Terms of Service</a>
+                <a href="/data-deletion" className="hover:text-green-600 underline underline-offset-2 transition-colors">Data Deletion Instructions</a>
+              </div>
+            </div>
+
+          </div>
+
+          <div className="border-t mt-10 pt-6 text-xs text-gray-400 flex flex-col sm:flex-row justify-between items-center gap-2">
+            <p>© {new Date().getFullYear()} Kwik Group (Pty) Ltd trading as <span className="text-green-600 font-medium">kwikChat</span>. All rights reserved.</p>
+            <p>kwikChat is not affiliated with or endorsed by Meta Platforms, Inc.</p>
           </div>
         </div>
       </footer>

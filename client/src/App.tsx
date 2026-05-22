@@ -10,6 +10,7 @@ import Conversations from "@/pages/Conversations";
 import Automation from "@/pages/Automation";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
+import DataDeletion from "@/pages/DataDeletion";
 import LoadingScreen from "@/components/LoadingScreen";
 import { useEffect } from "react";
 import { initGA } from "./lib/analytics";
@@ -28,6 +29,7 @@ function Router() {
       <Route path="/automation" component={Automation} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
+      <Route path="/data-deletion" component={DataDeletion} />
       {/* Fallback to 404 */}
       <Route component={NotFound} />
     </Switch>
