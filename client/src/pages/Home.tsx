@@ -546,19 +546,19 @@ export default function Home() {
                   <ul className="space-y-3 mb-6">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">New WhatsApp Business number</span>
+                      <span className="text-sm">WhatsApp number (new or existing)</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Up to 1,000 messages/month</span>
+                      <span className="text-sm">Unlimited automated workflows</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">3 automated workflows</span>
+                      <span className="text-sm">1 agent seat</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">1 agent login</span>
+                      <span className="text-sm">Escalate conversations to your agent</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
@@ -567,6 +567,10 @@ export default function Home() {
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
                       <span className="text-sm">Email support</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Pass-through message billing</span>
                     </li>
                   </ul>
                   <a href="#contact">
@@ -590,34 +594,35 @@ export default function Home() {
                       <span className="text-gray-600">/month</span>
                     </div>
                   </div>
+                  <p className="text-xs text-gray-500 font-medium uppercase tracking-wide mb-3">Everything in Starter, plus:</p>
                   <ul className="space-y-3 mb-6">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Use your existing WhatsApp number</span>
+                      <span className="text-sm">API access &amp; template triggering — send order confirmations, shipping updates &amp; more from your own systems</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Up to 5,000 messages/month</span>
+                      <span className="text-sm">System integrations (CRM, accounting &amp; more)</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Unlimited automated workflows</span>
+                      <span className="text-sm">Escalation routing to specific contacts or teams</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Multiple agent logins</span>
+                      <span className="text-sm">Multiple agent seats</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Advanced analytics & insights</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Priority email & chat support</span>
+                      <span className="text-sm">Advanced analytics &amp; insights</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
                       <span className="text-sm">Custom branding</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Priority email &amp; chat support</span>
                     </li>
                   </ul>
                   <a href="#contact">
