@@ -23,7 +23,7 @@ export async function setupVite(app: Express, server: Server) {
   const serverOptions = {
     middlewareMode: true,
     hmr: { server },
-    allowedHosts: true,
+    allowedHosts: true as const,
   };
 
   const vite = await createViteServer({
@@ -76,10 +76,39 @@ export function serveStatic(app: Express) {
     );
   }
 
-  app.use(express.static(distPath));
+  app.use(
+    express.static(distPath, {
+      setHeaders: (res, filePath) => {
+        if (filePath.endsWith(".html")) {
+          res.setHeader(
+            "Cache-Control",
+            "no-store, no-cache, must-revalidate, proxy-revalidate",
+          );
+        } else if (filePath.includes(`${path.sep}assets${path.sep}`)) {
+          // Vite fingerprints these files, so they are safe to cache long-term.
+          res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
+        }
+      },
+    }),
+  );
 
-  // fall through to index.html if the file doesn't exist
-  app.use("*", (_req, res) => {
+  // Never return index.html for a missing asset or API route. Doing so makes
+  // browsers report a misleading JavaScript MIME-type error.
+  app.use("*", (req, res) => {
+    const requestPath = new URL(req.originalUrl, "http://localhost").pathname;
+    const isAssetRequest =
+      requestPath.startsWith("/assets/") || /\.[^/]+$/.test(requestPath);
+
+    if (requestPath.startsWith("/api/") || isAssetRequest) {
+      return res.status(404).type("text/plain").send("Not found");
+    }
+
+    // Keep SPA document responses fresh so deployments cannot leave browsers
+    // holding an old HTML file that references removed Vite asset hashes.
+    res.set(
+      "Cache-Control",
+      "no-store, no-cache, must-revalidate, proxy-revalidate",
+    );
     res.sendFile(path.resolve(distPath, "index.html"));
   });
 }

@@ -309,6 +309,7 @@ export class MemStorage implements IStorage {
     const id = this.currentLeadId++;
     const lead: Lead = {
       id,
+      contactName: insertLead.contactName ?? null,
       email: insertLead.email,
       companyName: insertLead.companyName ?? null,
       phone: insertLead.phone ?? null,
