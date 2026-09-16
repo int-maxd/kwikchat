@@ -231,17 +231,17 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="features" className="py-20 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
+        <section id="features" className="business-features-section py-20">
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="business-features-heading text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Run Your Business on WhatsApp</h2>
               <p className="text-xl text-gray-600">Not just customer enquiries — automate your entire operation</p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <Card data-testid="card-feature-automation">
+            <div className="business-features-grid grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <Card className="business-feature-card" data-testid="card-feature-automation">
                 <CardContent className="pt-6">
-                  <Bot className="w-12 h-12 text-green-600 mb-4" />
+                  <div className="business-feature-icon"><Bot /></div>
                   <h3 className="text-xl font-semibold mb-2">Automated Business Workflows</h3>
                   <p className="text-gray-600">
                     Automate your entire customer journey — from answering FAQs and capturing leads, to customer onboarding, quote requests, order confirmations, and delivery updates. Stop repeating yourself and let automation handle the routine.
@@ -249,9 +249,9 @@ export default function Home() {
                 </CardContent>
               </Card>
 
-              <Card data-testid="card-feature-human">
+              <Card className="business-feature-card" data-testid="card-feature-human">
                 <CardContent className="pt-6">
-                  <Users className="w-12 h-12 text-green-600 mb-4" />
+                  <div className="business-feature-icon"><Users /></div>
                   <h3 className="text-xl font-semibold mb-2">Manage Conversations Anytime</h3>
                   <p className="text-gray-600">
                     Need to add a personal touch? Your team can step in and manage any conversation on behalf of your business, with full context of every automated exchange.
@@ -259,9 +259,9 @@ export default function Home() {
                 </CardContent>
               </Card>
 
-              <Card data-testid="card-feature-realtime">
+              <Card className="business-feature-card" data-testid="card-feature-realtime">
                 <CardContent className="pt-6">
-                  <Zap className="w-12 h-12 text-green-600 mb-4" />
+                  <div className="business-feature-icon"><Zap /></div>
                   <h3 className="text-xl font-semibold mb-2">Real-Time Updates</h3>
                   <p className="text-gray-600">
                     Send instant notifications using approved WhatsApp templates — job status updates, order confirmations, appointment reminders, and more. Keep customers informed automatically.
@@ -269,9 +269,9 @@ export default function Home() {
                 </CardContent>
               </Card>
 
-              <Card data-testid="card-feature-notifications-rich-media">
+              <Card className="business-feature-card" data-testid="card-feature-notifications-rich-media">
                 <CardContent className="pt-6">
-                  <Send className="w-12 h-12 text-green-600 mb-4" />
+                  <div className="business-feature-icon"><Send /></div>
                   <h3 className="text-xl font-semibold mb-2">Notifications &amp; Rich Media</h3>
                   <p className="text-gray-600">
                     Use WhatsApp Business messaging formats across your customer journeys — templates, images, video, audio, documents, forms, carousels, buttons, lists, and other supported interactive messages.
@@ -279,9 +279,9 @@ export default function Home() {
                 </CardContent>
               </Card>
 
-              <Card data-testid="card-feature-sessions">
+              <Card className="business-feature-card" data-testid="card-feature-sessions">
                 <CardContent className="pt-6">
-                  <MessageSquare className="w-12 h-12 text-green-600 mb-4" />
+                  <div className="business-feature-icon"><MessageSquare /></div>
                   <h3 className="text-xl font-semibold mb-2">Connect Your Tools</h3>
                   <p className="text-gray-600">
                     Link to your CRM, accounting software, or any external system. Capture orders, log leads, update records — all triggered from WhatsApp conversations.
@@ -289,9 +289,9 @@ export default function Home() {
                 </CardContent>
               </Card>
 
-              <Card data-testid="card-feature-analytics">
+              <Card className="business-feature-card" data-testid="card-feature-analytics">
                 <CardContent className="pt-6">
-                  <BarChart3 className="w-12 h-12 text-green-600 mb-4" />
+                  <div className="business-feature-icon"><BarChart3 /></div>
                   <h3 className="text-xl font-semibold mb-2">Know Your Numbers</h3>
                   <p className="text-gray-600">
                     Track chat volumes, response times, resolution rates, and automation performance. Spot where customers get stuck and optimise your flows with real insights
@@ -299,9 +299,9 @@ export default function Home() {
                 </CardContent>
               </Card>
 
-              <Card data-testid="card-feature-configuration">
+              <Card className="business-feature-card" data-testid="card-feature-configuration">
                 <CardContent className="pt-6">
-                  <Settings className="w-12 h-12 text-green-600 mb-4" />
+                  <div className="business-feature-icon"><Settings /></div>
                   <h3 className="text-xl font-semibold mb-2">Guided Setup</h3>
                   <p className="text-gray-600">
                     No technical skills needed — our team will walk you through the entire setup and onboarding process to get you up and running
