@@ -30,6 +30,7 @@ const FEATURES = [
   { id: 'ai-intent-routing', label: 'AI Intent Routing', description: 'Monthly add-on' },
   { id: 'ai-sentiment-analysis', label: 'AI Sentiment Analysis', description: 'Monthly add-on' },
   { id: 'human-handover', label: 'Human Intervention', description: 'Seamless agent handoff' },
+  { id: 'notifications-rich-media', label: 'Notifications & Rich Media', description: 'Templates, forms, carousels, buttons, lists & media' },
   { id: 'campaigns', label: 'Marketing Campaigns', description: 'Business-initiated messaging' },
   { id: 'omnichannel', label: 'Omnichannel Messaging', description: 'WhatsApp and Email today — Facebook and Instagram coming soon' },
   { id: 'integrations', label: 'System Integrations', description: 'Connect CRM, Accounting & more' },
@@ -418,7 +419,17 @@ export default function Home() {
                   <Zap className="w-12 h-12 text-green-600 mb-4" />
                   <h3 className="text-xl font-semibold mb-2">Real-Time Updates</h3>
                   <p className="text-gray-600">
-                    Send instant notifications — job status updates for plumbers, order confirmations for retailers, appointment reminders for clinics. Keep customers informed automatically.
+                    Send instant notifications using approved WhatsApp templates — job status updates, order confirmations, appointment reminders, and more. Keep customers informed automatically.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card data-testid="card-feature-notifications-rich-media">
+                <CardContent className="pt-6">
+                  <Send className="w-12 h-12 text-green-600 mb-4" />
+                  <h3 className="text-xl font-semibold mb-2">Notifications &amp; Rich Media</h3>
+                  <p className="text-gray-600">
+                    Use WhatsApp Business messaging formats across your customer journeys — templates, images, video, audio, documents, forms, carousels, buttons, lists, and other supported interactive messages.
                   </p>
                 </CardContent>
               </Card>
@@ -623,7 +634,7 @@ export default function Home() {
                   <ul className="space-y-3 mb-6">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">API access &amp; template triggering — send order confirmations, shipping updates &amp; more from your own systems</span>
+                      <span className="text-sm">API access &amp; full WhatsApp template triggering — send notifications, forms, carousels, buttons and more from your own systems</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
