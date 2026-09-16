@@ -182,11 +182,11 @@ export default function Home() {
         <section className="py-20 md:py-32 bg-gradient-to-b from-green-50 to-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <p className="text-green-600 font-semibold mb-4 uppercase tracking-wide">WhatsApp Business Customer Communication Platform</p>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              <p className="site-section-kicker">WhatsApp Business Customer Communication Platform</p>
+              <h1 className="site-section-title mx-auto mb-6">
                 Automate Your WhatsApp Business
               </h1>
-              <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+              <p className="site-section-description text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
                 Connect your WhatsApp Business Account and let kwikChat automate customer interactions, from enquiries and onboarding to quotes, status updates, and job notifications, while your team stays in full control from one central dashboard.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
