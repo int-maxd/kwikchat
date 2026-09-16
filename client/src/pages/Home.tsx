@@ -27,6 +27,8 @@ import {
 const FEATURES = [
   { id: 'rule-based', label: 'Rule-Based Conversations', description: 'Automated flows & triggers' },
   { id: 'ai-conversations', label: 'AI Conversations', description: 'Intelligent chat responses' },
+  { id: 'ai-intent-routing', label: 'AI Intent Routing', description: 'Monthly add-on' },
+  { id: 'ai-sentiment-analysis', label: 'AI Sentiment Analysis', description: 'Monthly add-on' },
   { id: 'human-handover', label: 'Human Intervention', description: 'Seamless agent handoff' },
   { id: 'campaigns', label: 'Marketing Campaigns', description: 'Business-initiated messaging' },
   { id: 'omnichannel', label: 'Omnichannel Messaging', description: 'WhatsApp and Email today — Facebook and Instagram coming soon' },
@@ -536,11 +538,23 @@ export default function Home() {
               <Card data-testid="card-coming-sentiment-analysis">
                 <CardContent className="pt-6">
                   <span className="inline-flex bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide mb-4">
-                    Now in trial · opt-in
+                    Monthly add-on · trial opt-in
                   </span>
                   <h3 className="text-xl font-semibold mb-2">AI Sentiment Analysis</h3>
                   <p className="text-gray-600">
                     Background scoring of customer sentiment for each conversation, with dashboard insights showing the sentiment breakdown.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card data-testid="card-coming-intent-routing">
+                <CardContent className="pt-6">
+                  <span className="inline-flex bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide mb-4">
+                    Monthly add-on
+                  </span>
+                  <h3 className="text-xl font-semibold mb-2">AI Intent Routing</h3>
+                  <p className="text-gray-600">
+                    Automatically identify what each customer needs and route conversations to the right workflow, agent, or team.
                   </p>
                 </CardContent>
               </Card>
@@ -722,6 +736,7 @@ export default function Home() {
 
             <div className="mt-12 text-center text-sm text-gray-600">
               <p>All plans include a setup and onboarding fee starting at R5,000. The final fee depends on your setup and requirements. Additional messages are charged separately.</p>
+              <p className="mt-2">AI Intent Routing and AI Sentiment Analysis are available as optional monthly add-ons. Contact us for add-on pricing.</p>
               <p className="mt-2">Need a custom solution? <a href="#contact" className="text-green-600 hover:underline">Contact us</a> for tailored pricing.</p>
             </div>
           </div>
