@@ -479,6 +479,30 @@ export default function Home() {
               </p>
             </div>
 
+            <div className="integration-3d-scene mx-auto mb-12 max-w-3xl" aria-hidden="true">
+              <div className="integration-orbit-ring integration-orbit-ring-one">
+                <div className="integration-orbit-node integration-orbit-node-n8n">
+                  <span className="integration-node-mark bg-orange-100 text-orange-700">n8n</span>
+                </div>
+                <div className="integration-orbit-node integration-orbit-node-woocommerce">
+                  <span className="integration-node-mark bg-purple-100 text-purple-700">W</span>
+                </div>
+                <div className="integration-orbit-node integration-orbit-node-calendar">
+                  <span className="integration-node-mark bg-blue-100 text-blue-700">G</span>
+                </div>
+              </div>
+              <div className="integration-orbit-ring integration-orbit-ring-two" />
+              <div className="integration-orbit-ring integration-orbit-ring-three" />
+              <div className="integration-hub">
+                <MessageCircle className="w-8 h-8 text-white" />
+                <span>kwikChat</span>
+                <small>connected</small>
+              </div>
+              <span className="integration-particle integration-particle-one" />
+              <span className="integration-particle integration-particle-two" />
+              <span className="integration-particle integration-particle-three" />
+            </div>
+
             <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
               <Card className="border-green-200 shadow-sm hover:shadow-lg transition-shadow" data-testid="card-integration-n8n">
                 <CardContent className="pt-6">
