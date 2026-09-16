@@ -534,31 +534,7 @@ export default function Home() {
               <p className="text-xl text-gray-600">New capabilities are being added to help your team do more</p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              <Card data-testid="card-coming-sentiment-analysis">
-                <CardContent className="pt-6">
-                  <span className="inline-flex bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide mb-4">
-                    Monthly add-on · trial opt-in
-                  </span>
-                  <h3 className="text-xl font-semibold mb-2">AI Sentiment Analysis</h3>
-                  <p className="text-gray-600">
-                    Background scoring of customer sentiment for each conversation, with dashboard insights showing the sentiment breakdown.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card data-testid="card-coming-intent-routing">
-                <CardContent className="pt-6">
-                  <span className="inline-flex bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide mb-4">
-                    Monthly add-on
-                  </span>
-                  <h3 className="text-xl font-semibold mb-2">AI Intent Routing</h3>
-                  <p className="text-gray-600">
-                    Automatically identify what each customer needs and route conversations to the right workflow, agent, or team.
-                  </p>
-                </CardContent>
-              </Card>
-
+            <div className="max-w-xl mx-auto">
               <Card data-testid="card-coming-more-channels">
                 <CardContent className="pt-6">
                   <span className="inline-flex bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide mb-4">
