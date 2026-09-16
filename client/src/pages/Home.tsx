@@ -33,7 +33,7 @@ const FEATURES = [
   { id: 'notifications-rich-media', label: 'Notifications & Rich Media', description: 'Templates, forms, carousels, buttons, lists & media' },
   { id: 'campaigns', label: 'Marketing Campaigns', description: 'Business-initiated messaging' },
   { id: 'omnichannel', label: 'Omnichannel Messaging', description: 'WhatsApp and Email today — Facebook and Instagram coming soon' },
-  { id: 'integrations', label: 'System Integrations', description: 'Connect CRM, Accounting & more' },
+  { id: 'integrations', label: 'System Integrations', description: 'n8n, WooCommerce, Google Calendar & more' },
   { id: 'analytics', label: 'Analytics Dashboard', description: 'Conversation insights' },
   { id: 'multi-user', label: 'Multi-User Access', description: 'Team collaboration' },
   { id: 'custom-branding', label: 'Custom Branding', description: 'White-label options' },
@@ -463,6 +463,71 @@ export default function Home() {
                   </p>
                 </CardContent>
               </Card>
+            </div>
+          </div>
+        </section>
+
+        <section id="integrations" className="py-20 bg-gradient-to-br from-slate-50 via-white to-green-50">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <span className="inline-flex items-center rounded-full bg-green-100 px-4 py-1 text-sm font-semibold text-green-700 mb-4">
+                Connect everything
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Your Tools, Working Together</h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Trigger workflows, sync customer data, and keep your whole operation moving from one WhatsApp conversation.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              <Card className="border-green-200 shadow-sm hover:shadow-lg transition-shadow" data-testid="card-integration-n8n">
+                <CardContent className="pt-6">
+                  <div className="flex items-start justify-between gap-4 mb-5">
+                    <div className="w-12 h-12 rounded-2xl bg-orange-100 text-orange-700 flex items-center justify-center font-bold text-lg">n8n</div>
+                    <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-semibold text-green-700">Available now</span>
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">n8n Nodes</h3>
+                  <p className="text-gray-600">
+                    Connect kwikChat to the tools you already use with reusable n8n nodes and flexible workflow automation.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-green-200 shadow-sm hover:shadow-lg transition-shadow" data-testid="card-integration-woocommerce">
+                <CardContent className="pt-6">
+                  <div className="flex items-start justify-between gap-4 mb-5">
+                    <div className="w-12 h-12 rounded-2xl bg-purple-100 text-purple-700 flex items-center justify-center font-bold text-lg">W</div>
+                    <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-semibold text-green-700">Available now</span>
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">WooCommerce</h3>
+                  <p className="text-gray-600">
+                    Bring orders, customer updates, delivery notifications, and support conversations together on WhatsApp.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-green-200 shadow-sm hover:shadow-lg transition-shadow" data-testid="card-integration-google-calendar">
+                <CardContent className="pt-6">
+                  <div className="flex items-start justify-between gap-4 mb-5">
+                    <div className="w-12 h-12 rounded-2xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-lg">G</div>
+                    <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-semibold text-green-700">Available now</span>
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">Google Calendar</h3>
+                  <p className="text-gray-600">
+                    Coordinate bookings, reminders, and appointment updates without leaving the customer conversation.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="max-w-5xl mx-auto mt-8 rounded-2xl border border-dashed border-green-300 bg-white/80 p-6 text-center">
+              <span className="inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-700 mb-3">
+                Coming soon
+              </span>
+              <h3 className="text-lg font-semibold mb-1">More integrations are on the way</h3>
+              <p className="text-gray-600">
+                CRM, accounting, support, and other business tools will be added to the kwikChat integration network.
+              </p>
             </div>
           </div>
         </section>
