@@ -212,8 +212,8 @@ export default function Home() {
             <div className="max-w-5xl mx-auto flex flex-col lg:flex-row items-center gap-12">
               <div className="flex-1 text-center lg:text-left">
                 <p className="text-green-600 font-semibold mb-3 uppercase tracking-wide text-sm">See it in action</p>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Watch automation work in real time</h2>
-                <p className="text-gray-600 text-lg mb-6">
+                <h2 className="site-section-title mb-4">Watch automation work in real time</h2>
+                <p className="site-section-description text-gray-600 text-lg mb-6">
                   A customer reaches out. Your kwikChat bot handles it instantly: no waiting, no manual replies, no missed leads.
                 </p>
                 <ul className="space-y-3 text-sm text-gray-600">
@@ -234,8 +234,9 @@ export default function Home() {
         <section id="features" className="business-features-section py-20">
           <div className="container mx-auto px-4 relative z-10">
             <div className="business-features-heading text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Run Your Business on WhatsApp</h2>
-              <p className="text-xl text-gray-600">Not just customer enquiries. Automate your entire operation.</p>
+              <p className="site-section-kicker">Core capabilities</p>
+              <h2 className="site-section-title mb-4">Run Your Business on WhatsApp</h2>
+              <p className="site-section-description text-xl text-gray-600">Not just customer enquiries. Automate your entire operation.</p>
             </div>
 
             <div className="business-features-grid grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -316,12 +317,10 @@ export default function Home() {
 
         <section id="integrations" className="py-20 bg-gradient-to-br from-slate-50 via-white to-green-50">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <span className="inline-flex items-center rounded-full bg-green-100 px-4 py-1 text-sm font-semibold text-green-700 mb-4">
-                Connect everything
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Your Tools, Working Together</h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              <div className="text-center mb-12">
+                <span className="site-section-kicker">Connect everything</span>
+                <h2 className="site-section-title mb-4">Your Tools, Working Together</h2>
+                <p className="site-section-description text-xl text-gray-600 max-w-2xl mx-auto">
                 Trigger workflows, sync customer data, and keep your whole operation moving from one WhatsApp conversation.
               </p>
             </div>
@@ -393,8 +392,9 @@ export default function Home() {
         <section id="how-it-works" className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">How It Works</h2>
-              <p className="text-xl text-gray-600">Get started in minutes</p>
+              <p className="site-section-kicker">Simple setup</p>
+              <h2 className="site-section-title mb-4">How It Works</h2>
+              <p className="site-section-description text-xl text-gray-600">Get started in minutes</p>
             </div>
 
             <div className="max-w-4xl mx-auto space-y-8">
@@ -440,8 +440,9 @@ export default function Home() {
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Results That Matter</h2>
-              <p className="text-xl text-gray-600">See the impact on your business</p>
+              <p className="site-section-kicker">Business impact</p>
+              <h2 className="site-section-title mb-4">Results That Matter</h2>
+              <p className="site-section-description text-xl text-gray-600">See the impact on your business</p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
@@ -464,8 +465,9 @@ export default function Home() {
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">What’s Coming</h2>
-              <p className="text-xl text-gray-600">New capabilities are being added to help your team do more</p>
+              <p className="site-section-kicker">On the roadmap</p>
+              <h2 className="site-section-title mb-4">What’s Coming</h2>
+              <p className="site-section-description text-xl text-gray-600">New capabilities are being added to help your team do more</p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -499,8 +501,9 @@ export default function Home() {
         <section id="pricing" className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Simple, Transparent Pricing</h2>
-              <p className="text-xl text-gray-600">Choose the plan that fits your business needs</p>
+              <p className="site-section-kicker">Plans that scale</p>
+              <h2 className="site-section-title mb-4">Simple, Transparent Pricing</h2>
+              <p className="site-section-description text-xl text-gray-600">Choose the plan that fits your business needs</p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -667,8 +670,8 @@ export default function Home() {
         <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto bg-green-600 text-white rounded-2xl p-12 text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Stop Missing Customer Messages</h2>
-              <p className="text-xl mb-8 opacity-90">
+              <h2 className="site-section-title site-section-title-inverse mb-4">Stop Missing Customer Messages</h2>
+              <p className="site-section-description text-xl mb-8 opacity-90">
                 Let automation work 24/7 while you stay in control from your dashboard
               </p>
               <a href="#contact">
@@ -685,8 +688,8 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Automate Your WhatsApp?</h2>
-                <p className="text-xl text-gray-600">Tell us about your business and we'll show you how <span className="text-green-600 font-semibold">kwikChat</span> can help</p>
+                <h2 className="site-section-title mb-4">Ready to Automate Your WhatsApp?</h2>
+                <p className="site-section-description text-xl text-gray-600">Tell us about your business and we'll show you how <span className="text-green-600 font-semibold">kwikChat</span> can help</p>
               </div>
 
               <Card>

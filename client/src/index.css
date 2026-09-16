@@ -141,6 +141,36 @@
   animation: glow 1.5s ease-in-out infinite;
 }
 
+.site-section-kicker {
+  display: block;
+  margin-bottom: 0.7rem;
+  color: #15803d;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.site-section-title {
+  max-width: 37rem;
+  color: #0f172a;
+  font-family: inherit;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+}
+
+.site-section-title-inverse {
+  color: #fff;
+}
+
+.site-section-description {
+  color: #64748b;
+  line-height: 1.7;
+}
+
 .business-features-section {
   position: relative;
   overflow: hidden;

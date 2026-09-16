@@ -477,7 +477,7 @@ export function RichMessageShowcase() {
           <div className="rich-message-heading">
             <div>
               <span>Built for WhatsApp</span>
-              <h2 id="rich-message-title">Every message can do more</h2>
+              <h2 id="rich-message-title" className="site-section-title">Every message can do more</h2>
             </div>
             <p>
               Scroll through real examples generated from the same message types kwikChat uses:
