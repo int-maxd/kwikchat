@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { useToast } from '@/hooks/use-toast';
 import { apiRequest } from '@/lib/queryClient';
+import { LiveAutomationDemo, RichMessageShowcase } from '@/components/RichMessageShowcase';
 import {
   MessageCircle,
   Bot,
@@ -98,46 +99,6 @@ export default function Home() {
         : [...prev.selectedFeatures, featureId],
     }));
   };
-
-  const chatRef = useRef<HTMLDivElement>(null);
-  const chatScrollRef = useRef<HTMLDivElement>(null);
-  const [visibleMessages, setVisibleMessages] = useState(0);
-
-  const CHAT_MESSAGES = [
-    { from: 'customer', type: 'text', content: 'Hi! I need help with a burst pipe 🔧' },
-    { from: 'bot', type: 'text', content: "Hi there! 👋 I'm here to help. What type of service do you need?" },
-    { from: 'bot', type: 'list', content: { title: 'Select a service:', items: ['🔧 Burst Pipe Repair', '🚿 Blocked Drain', '🌡️ Geyser Issue', '❓ Other'] } },
-    { from: 'customer', type: 'text', content: '🔧 Burst Pipe Repair' },
-    { from: 'bot', type: 'card', content: { title: 'Burst Pipe Repair', body: 'Emergency service · Average response: 2 hrs', buttons: ['📅 Book Now', '💬 Get Quote'] } },
-    { from: 'customer', type: 'quickreply', content: '📅 Book Now' },
-    { from: 'bot', type: 'media', content: { label: 'Technician en route 📍', sub: 'Image · Tap to view location' } },
-    { from: 'bot', type: 'text', content: '✅ Confirmed! Ref #PL-2847. Your plumber arrives tomorrow 8–10am.' },
-  ];
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisibleMessages(0);
-          observer.disconnect();
-          const delays = [400, 1300, 2300, 3700, 4700, 6100, 7100, 8200];
-          delays.forEach((delay, i) => {
-            setTimeout(() => {
-              setVisibleMessages(i + 1);
-              setTimeout(() => {
-                if (chatScrollRef.current) {
-                  chatScrollRef.current.scrollTop = chatScrollRef.current.scrollHeight;
-                }
-              }, 50);
-            }, delay);
-          });
-        }
-      },
-      { threshold: 0.25 }
-    );
-    if (chatRef.current) observer.observe(chatRef.current);
-    return () => observer.disconnect();
-  }, []);
 
   const validateEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   const validatePhone = (phone: string) => {
@@ -263,124 +224,8 @@ export default function Home() {
                 </ul>
               </div>
 
-              <div className="flex-1 flex justify-center" ref={chatRef}>
-                <div
-                  className="flex flex-col rounded-3xl shadow-2xl overflow-hidden border border-gray-200"
-                  style={{ width: '300px', aspectRatio: '9 / 19' }}
-                >
-                  {/* WhatsApp header */}
-                  <div className="flex items-center gap-3 px-4 py-3 flex-shrink-0" style={{ background: '#075e54' }}>
-                    <div className="w-9 h-9 rounded-full bg-green-300 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">kC</div>
-                    <div>
-                      <p className="text-white font-semibold text-sm leading-none">kwikChat Bot</p>
-                      <p className="text-green-200 text-xs mt-0.5">online</p>
-                    </div>
-                  </div>
-
-                  {/* Messages area */}
-                  <div
-                    ref={chatScrollRef}
-                    className="flex-1 overflow-y-auto px-2.5 py-3 space-y-2"
-                    style={{ background: '#ece5dd', scrollBehavior: 'smooth' }}
-                  >
-                    {CHAT_MESSAGES.map((msg, i) => {
-                      const isBot = msg.from === 'bot';
-                      const time = new Date().toLocaleTimeString('en-ZA', { hour: '2-digit', minute: '2-digit' });
-                      const visible = visibleMessages > i;
-
-                      return (
-                        <div
-                          key={i}
-                          className={`flex ${isBot ? 'justify-start' : 'justify-end'} transition-all duration-500`}
-                          style={{ opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(8px)' }}
-                        >
-                          {msg.type === 'text' && (
-                            <div
-                              className={`max-w-[88%] px-2.5 py-1.5 text-[11px] leading-snug text-gray-800 shadow-sm ${isBot ? 'rounded-2xl rounded-tl-sm' : 'rounded-2xl rounded-tr-sm'}`}
-                              style={{ background: isBot ? '#fff' : '#dcf8c6' }}
-                            >
-                              {msg.content as string}
-                              <span className="block text-right text-gray-400 text-[9px] mt-0.5">{time} {isBot ? '🤖' : '✓✓'}</span>
-                            </div>
-                          )}
-
-                          {msg.type === 'list' && isBot && (
-                            <div className="max-w-[92%] bg-white rounded-2xl rounded-tl-sm shadow-sm overflow-hidden text-[11px]">
-                              <div className="px-2.5 py-2 text-gray-700">{(msg.content as any).title}</div>
-                              <div className="border-t border-gray-100">
-                                {(msg.content as any).items.map((item: string, j: number) => (
-                                  <div key={j} className="px-2.5 py-1.5 border-b border-gray-100 text-green-700 font-medium flex justify-between items-center last:border-0">
-                                    <span>{item}</span>
-                                    <span className="text-gray-300 text-xs">›</span>
-                                  </div>
-                                ))}
-                              </div>
-                              <div className="px-2.5 py-1 text-right text-gray-400 text-[9px]">{time} 🤖</div>
-                            </div>
-                          )}
-
-                          {msg.type === 'card' && isBot && (
-                            <div className="max-w-[92%] bg-white rounded-2xl rounded-tl-sm shadow-sm overflow-hidden text-[11px]">
-                              <div className="h-16 flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #22c55e, #0d9488)' }}>
-                                <Zap className="w-7 h-7 text-white opacity-90" />
-                              </div>
-                              <div className="px-2.5 py-2">
-                                <p className="font-semibold text-gray-800">{(msg.content as any).title}</p>
-                                <p className="text-gray-500 text-[10px] mt-0.5">{(msg.content as any).body}</p>
-                              </div>
-                              <div className="border-t border-gray-100">
-                                {(msg.content as any).buttons.map((btn: string, j: number) => (
-                                  <div key={j} className="text-center py-1.5 text-green-700 font-semibold border-b border-gray-100 last:border-0 text-[11px]">
-                                    {btn}
-                                  </div>
-                                ))}
-                              </div>
-                              <div className="px-2.5 py-1 text-right text-gray-400 text-[9px]">{time} 🤖</div>
-                            </div>
-                          )}
-
-                          {msg.type === 'quickreply' && !isBot && (
-                            <div
-                              className="max-w-[88%] px-2.5 py-1.5 rounded-2xl rounded-tr-sm text-[11px] text-gray-800 shadow-sm border border-green-300"
-                              style={{ background: '#dcf8c6' }}
-                            >
-                              {msg.content as string}
-                              <span className="block text-right text-gray-400 text-[9px] mt-0.5">✓✓</span>
-                            </div>
-                          )}
-
-                          {msg.type === 'media' && isBot && (
-                            <div className="max-w-[88%] bg-white rounded-2xl rounded-tl-sm shadow-sm overflow-hidden text-[11px]">
-                              <div
-                                className="h-20 flex items-end p-2 relative"
-                                style={{ background: 'linear-gradient(135deg, #60a5fa, #34d399)' }}
-                              >
-                                <MapPin className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-7 h-7 text-white drop-shadow" />
-                                <span className="ml-auto bg-black/30 text-white text-[9px] px-1.5 py-0.5 rounded">📎 IMG</span>
-                              </div>
-                              <div className="px-2.5 py-1.5">
-                                <p className="font-medium text-gray-800">{(msg.content as any).label}</p>
-                                <p className="text-gray-400 text-[10px]">{(msg.content as any).sub}</p>
-                              </div>
-                              <div className="px-2.5 pb-1 text-right text-gray-400 text-[9px]">{time} 🤖</div>
-                            </div>
-                          )}
-                        </div>
-                      );
-                    })}
-
-                    {visibleMessages > 0 && visibleMessages < CHAT_MESSAGES.length && (
-                      <div className="flex justify-start">
-                        <div className="bg-white px-3 py-2 rounded-2xl rounded-tl-sm shadow-sm flex gap-1 items-center">
-                          <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                          <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                          <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
-                        </div>
-                      </div>
-                    )}
-                  </div>
-
-                </div>
+              <div className="flex-1 flex justify-center">
+                <LiveAutomationDemo />
               </div>
             </div>
           </div>
@@ -467,6 +312,8 @@ export default function Home() {
           </div>
         </section>
 
+        <RichMessageShowcase />
+
         <section id="integrations" className="py-20 bg-gradient-to-br from-slate-50 via-white to-green-50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
@@ -477,30 +324,6 @@ export default function Home() {
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                 Trigger workflows, sync customer data, and keep your whole operation moving from one WhatsApp conversation.
               </p>
-            </div>
-
-            <div className="integration-3d-scene mx-auto mb-12 max-w-3xl" aria-hidden="true">
-              <div className="integration-orbit-ring integration-orbit-ring-one">
-                <div className="integration-orbit-node integration-orbit-node-n8n">
-                  <span className="integration-node-mark bg-orange-100 text-orange-700">n8n</span>
-                </div>
-                <div className="integration-orbit-node integration-orbit-node-woocommerce">
-                  <span className="integration-node-mark bg-purple-100 text-purple-700">W</span>
-                </div>
-                <div className="integration-orbit-node integration-orbit-node-calendar">
-                  <span className="integration-node-mark bg-blue-100 text-blue-700">G</span>
-                </div>
-              </div>
-              <div className="integration-orbit-ring integration-orbit-ring-two" />
-              <div className="integration-orbit-ring integration-orbit-ring-three" />
-              <div className="integration-hub">
-                <MessageCircle className="w-8 h-8 text-white" />
-                <span>kwikChat</span>
-                <small>connected</small>
-              </div>
-              <span className="integration-particle integration-particle-one" />
-              <span className="integration-particle integration-particle-two" />
-              <span className="integration-particle integration-particle-three" />
             </div>
 
             <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -544,14 +367,25 @@ export default function Home() {
               </Card>
             </div>
 
-            <div className="max-w-5xl mx-auto mt-8 rounded-2xl border border-dashed border-green-300 bg-white/80 p-6 text-center">
-              <span className="inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-700 mb-3">
-                Coming soon
-              </span>
-              <h3 className="text-lg font-semibold mb-1">More integrations are on the way</h3>
-              <p className="text-gray-600">
-                CRM, accounting, support, and other business tools will be added to the kwikChat integration network.
-              </p>
+            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto mt-8">
+              <div className="rounded-2xl border border-dashed border-green-300 bg-white/80 p-6">
+                <span className="inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-700 mb-3">
+                  Coming soon
+                </span>
+                <h3 className="text-lg font-semibold mb-2">Business system integrations</h3>
+                <p className="text-gray-600">
+                  CRM, accounting, and customer support tools will be added to the kwikChat integration network.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-dashed border-blue-300 bg-white/80 p-6">
+                <span className="inline-flex rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-blue-700 mb-3">
+                  Future integrations
+                </span>
+                <h3 className="text-lg font-semibold mb-2">More ways to connect your workflow</h3>
+                <p className="text-gray-600">
+                  Ecommerce, payment, productivity, and project tools are planned as the kwikChat ecosystem grows.
+                </p>
+              </div>
             </div>
           </div>
         </section>
