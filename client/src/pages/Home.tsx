@@ -29,7 +29,7 @@ const FEATURES = [
   { id: 'ai-conversations', label: 'AI Conversations', description: 'Intelligent chat responses' },
   { id: 'human-handover', label: 'Human Intervention', description: 'Seamless agent handoff' },
   { id: 'campaigns', label: 'Marketing Campaigns', description: 'Business-initiated messaging' },
-  { id: 'omnichannel', label: 'Omnichannel Messaging', description: 'WhatsApp, Email (FB & IG coming soon)' },
+  { id: 'omnichannel', label: 'Omnichannel Messaging', description: 'WhatsApp and Email today — Facebook and Instagram coming soon' },
   { id: 'integrations', label: 'System Integrations', description: 'Connect CRM, Accounting & more' },
   { id: 'analytics', label: 'Analytics Dashboard', description: 'Conversation insights' },
   { id: 'multi-user', label: 'Multi-User Access', description: 'Team collaboration' },
@@ -525,6 +525,41 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">What’s Coming</h2>
+              <p className="text-xl text-gray-600">New capabilities are being added to help your team do more</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              <Card data-testid="card-coming-sentiment-analysis">
+                <CardContent className="pt-6">
+                  <span className="inline-flex bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide mb-4">
+                    Now in trial · opt-in
+                  </span>
+                  <h3 className="text-xl font-semibold mb-2">AI Sentiment Analysis</h3>
+                  <p className="text-gray-600">
+                    Background scoring of customer sentiment for each conversation, with dashboard insights showing the sentiment breakdown.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card data-testid="card-coming-more-channels">
+                <CardContent className="pt-6">
+                  <span className="inline-flex bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide mb-4">
+                    Coming soon
+                  </span>
+                  <h3 className="text-xl font-semibold mb-2">More Channels</h3>
+                  <p className="text-gray-600">
+                    Facebook Messenger and Instagram Messaging, alongside WhatsApp and Email, so your team can manage more customer conversations in one place.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
         <section id="pricing" className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
@@ -686,7 +721,7 @@ export default function Home() {
             </div>
 
             <div className="mt-12 text-center text-sm text-gray-600">
-              <p>All plans include a once-off R5,000 setup and onboarding fee. Additional messages charged separately.</p>
+              <p>All plans include a setup and onboarding fee starting at R5,000. The final fee depends on your setup and requirements. Additional messages are charged separately.</p>
               <p className="mt-2">Need a custom solution? <a href="#contact" className="text-green-600 hover:underline">Contact us</a> for tailored pricing.</p>
             </div>
           </div>
