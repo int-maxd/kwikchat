@@ -81,7 +81,7 @@ export default function Integrations() {
           </div>
 
           <div className="mt-12 text-center reveal">
-            <p className="text-lg text-gray-600">Don't see your tool? <a href="#contact" className="font-medium text-primary hover:text-primary-500">Contact us</a> — we can integrate with virtually any system that has an API.</p>
+            <p className="text-lg text-gray-600">Don't see your tool? <a href="#contact" className="font-medium text-primary hover:text-primary-500">Contact us</a>. We can integrate with virtually any system that has an API.</p>
           </div>
         </div>
       </div>

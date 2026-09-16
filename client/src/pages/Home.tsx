@@ -33,7 +33,7 @@ const FEATURES = [
   { id: 'human-handover', label: 'Human Intervention', description: 'Seamless agent handoff' },
   { id: 'notifications-rich-media', label: 'Notifications & Rich Media', description: 'Templates, forms, carousels, buttons, lists & media' },
   { id: 'campaigns', label: 'Marketing Campaigns', description: 'Business-initiated messaging' },
-  { id: 'omnichannel', label: 'Omnichannel Messaging', description: 'WhatsApp and Email today — Facebook and Instagram coming soon' },
+  { id: 'omnichannel', label: 'Omnichannel Messaging', description: 'WhatsApp and Email today. Facebook and Instagram coming soon' },
   { id: 'integrations', label: 'System Integrations', description: 'n8n, WooCommerce, Google Calendar & more' },
   { id: 'analytics', label: 'Analytics Dashboard', description: 'Conversation insights' },
   { id: 'multi-user', label: 'Multi-User Access', description: 'Team collaboration' },
@@ -187,7 +187,7 @@ export default function Home() {
                 Automate Your WhatsApp Business
               </h1>
               <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                Connect your WhatsApp Business Account and let kwikChat automate customer interactions — from enquiries and onboarding to quotes, status updates, and job notifications — while your team stays in full control from one central dashboard.
+                Connect your WhatsApp Business Account and let kwikChat automate customer interactions, from enquiries and onboarding to quotes, status updates, and job notifications, while your team stays in full control from one central dashboard.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="#contact">
@@ -214,7 +214,7 @@ export default function Home() {
                 <p className="text-green-600 font-semibold mb-3 uppercase tracking-wide text-sm">See it in action</p>
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">Watch automation work in real time</h2>
                 <p className="text-gray-600 text-lg mb-6">
-                  A customer reaches out. Your kwikChat bot handles it instantly — no waiting, no manual replies, no missed leads.
+                  A customer reaches out. Your kwikChat bot handles it instantly: no waiting, no manual replies, no missed leads.
                 </p>
                 <ul className="space-y-3 text-sm text-gray-600">
                   <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" /> Responds instantly, 24/7</li>
@@ -235,7 +235,7 @@ export default function Home() {
           <div className="container mx-auto px-4 relative z-10">
             <div className="business-features-heading text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Run Your Business on WhatsApp</h2>
-              <p className="text-xl text-gray-600">Not just customer enquiries — automate your entire operation</p>
+              <p className="text-xl text-gray-600">Not just customer enquiries. Automate your entire operation.</p>
             </div>
 
             <div className="business-features-grid grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -244,7 +244,7 @@ export default function Home() {
                   <div className="business-feature-icon"><Bot /></div>
                   <h3 className="text-xl font-semibold mb-2">Automated Business Workflows</h3>
                   <p className="text-gray-600">
-                    Automate your entire customer journey — from answering FAQs and capturing leads, to customer onboarding, quote requests, order confirmations, and delivery updates. Stop repeating yourself and let automation handle the routine.
+                    Automate your entire customer journey, from answering FAQs and capturing leads to customer onboarding, quote requests, order confirmations, and delivery updates. Stop repeating yourself and let automation handle the routine.
                   </p>
                 </CardContent>
               </Card>
@@ -264,7 +264,7 @@ export default function Home() {
                   <div className="business-feature-icon"><Zap /></div>
                   <h3 className="text-xl font-semibold mb-2">Real-Time Updates</h3>
                   <p className="text-gray-600">
-                    Send instant notifications using approved WhatsApp templates — job status updates, order confirmations, appointment reminders, and more. Keep customers informed automatically.
+                    Send instant notifications using approved WhatsApp templates, including job status updates, order confirmations, appointment reminders, and more. Keep customers informed automatically.
                   </p>
                 </CardContent>
               </Card>
@@ -274,7 +274,7 @@ export default function Home() {
                   <div className="business-feature-icon"><Send /></div>
                   <h3 className="text-xl font-semibold mb-2">Notifications &amp; Rich Media</h3>
                   <p className="text-gray-600">
-                    Use WhatsApp Business messaging formats across your customer journeys — templates, images, video, audio, documents, forms, carousels, buttons, lists, and other supported interactive messages.
+                    Use WhatsApp Business messaging formats across your customer journeys: templates, images, video, audio, documents, forms, carousels, buttons, lists, and other supported interactive messages.
                   </p>
                 </CardContent>
               </Card>
@@ -284,7 +284,7 @@ export default function Home() {
                   <div className="business-feature-icon"><MessageSquare /></div>
                   <h3 className="text-xl font-semibold mb-2">Connect Your Tools</h3>
                   <p className="text-gray-600">
-                    Link to your CRM, accounting software, or any external system. Capture orders, log leads, update records — all triggered from WhatsApp conversations.
+                    Link to your CRM, accounting software, or any external system. Capture orders, log leads, and update records, all triggered from WhatsApp conversations.
                   </p>
                 </CardContent>
               </Card>
@@ -304,7 +304,7 @@ export default function Home() {
                   <div className="business-feature-icon"><Settings /></div>
                   <h3 className="text-xl font-semibold mb-2">Guided Setup</h3>
                   <p className="text-gray-600">
-                    No technical skills needed — our team will walk you through the entire setup and onboarding process to get you up and running
+                    No technical skills needed. Our team will walk you through the entire setup and onboarding process to get you up and running.
                   </p>
                 </CardContent>
               </Card>
@@ -405,7 +405,7 @@ export default function Home() {
                 <div>
                   <h3 className="text-xl font-semibold mb-2">Connect &amp; Authorise Your WhatsApp Business Account</h3>
                   <p className="text-gray-600">
-                    Authorise kwikChat to manage communications on your behalf — using a new or existing WhatsApp Business number. You remain the owner of your WhatsApp Business Account at all times.
+                    Authorise kwikChat to manage communications on your behalf using a new or existing WhatsApp Business number. You remain the owner of your WhatsApp Business Account at all times.
                   </p>
                 </div>
               </div>
@@ -417,7 +417,7 @@ export default function Home() {
                 <div>
                   <h3 className="text-xl font-semibold mb-2">We Build Your Workflows Together</h3>
                   <p className="text-gray-600">
-                    During onboarding, we'll work with you to set up your automated flows — welcome messages, FAQs, onboarding sequences, quote requests, and more.
+                    During onboarding, we'll work with you to set up your automated flows, including welcome messages, FAQs, onboarding sequences, quote requests, and more.
                   </p>
                 </div>
               </div>
@@ -429,7 +429,7 @@ export default function Home() {
                 <div>
                   <h3 className="text-xl font-semibold mb-2">You're Always In Control</h3>
                   <p className="text-gray-600">
-                    Monitor all conversations from your dashboard. Let automation handle the routine while your team manages conversations directly whenever needed — on behalf of your business.
+                    Monitor all conversations from your dashboard. Let automation handle the routine while your team manages conversations directly whenever needed on behalf of your business.
                   </p>
                 </div>
               </div>
@@ -468,7 +468,7 @@ export default function Home() {
               <p className="text-xl text-gray-600">New capabilities are being added to help your team do more</p>
             </div>
 
-            <div className="max-w-xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               <Card data-testid="card-coming-more-channels">
                 <CardContent className="pt-6">
                   <span className="inline-flex bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide mb-4">
@@ -477,6 +477,18 @@ export default function Home() {
                   <h3 className="text-xl font-semibold mb-2">More Channels</h3>
                   <p className="text-gray-600">
                     Facebook Messenger and Instagram Messaging, alongside WhatsApp and Email, so your team can manage more customer conversations in one place.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-blue-200" data-testid="card-coming-future-integrations">
+                <CardContent className="pt-6">
+                  <span className="inline-flex bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide mb-4">
+                    Coming soon
+                  </span>
+                  <h3 className="text-xl font-semibold mb-2">Future Integrations</h3>
+                  <p className="text-gray-600">
+                    More CRM, accounting, ecommerce, payment, support, productivity, and project tools connected directly to kwikChat workflows.
                   </p>
                 </CardContent>
               </Card>
@@ -557,7 +569,7 @@ export default function Home() {
                   <ul className="space-y-3 mb-6">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">API access &amp; full WhatsApp template triggering — send notifications, forms, carousels, buttons and more from your own systems</span>
+                      <span className="text-sm">API access and full WhatsApp template triggering: send notifications, forms, carousels, buttons, and more from your own systems</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />

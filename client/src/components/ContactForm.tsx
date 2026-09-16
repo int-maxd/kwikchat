@@ -90,7 +90,7 @@ export default function ContactForm() {
                     </svg>
                   </div>
                   <p className="ml-3 text-base text-gray-600">
-                    <span className="font-medium text-gray-900">{item.title}</span> — {item.description}
+                    <span className="font-medium text-gray-900">{item.title}</span>: {item.description}
                   </p>
                 </div>
               ))}

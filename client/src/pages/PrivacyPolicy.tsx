@@ -122,7 +122,7 @@ export default function PrivacyPolicy() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-gray-900 mb-3">5. WhatsApp Business API — Your Obligations</h2>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-3">5. WhatsApp Business API: Your Obligations</h2>
             <p>As a business using kwikChat to communicate with your customers via WhatsApp, you are responsible for:</p>
             <ul className="list-disc pl-6 space-y-2 mt-2">
               <li>Obtaining valid consent from your customers before messaging them via WhatsApp</li>
@@ -163,8 +163,8 @@ export default function PrivacyPolicy() {
             <h2 className="text-2xl font-semibold text-gray-900 mb-3">9. Cookies</h2>
             <p>Our website uses cookies to enhance your experience. We use:</p>
             <ul className="list-disc pl-6 space-y-2 mt-2">
-              <li><strong>Essential cookies</strong> — required for the website to function</li>
-              <li><strong>Analytics cookies</strong> — Google Analytics (anonymised) to understand how visitors use our site</li>
+              <li><strong>Essential cookies:</strong> required for the website to function</li>
+              <li><strong>Analytics cookies:</strong> Google Analytics (anonymised) to understand how visitors use our site</li>
             </ul>
             <p className="mt-3">You can disable cookies in your browser settings, though some functionality may be affected.</p>
           </section>
