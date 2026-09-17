@@ -149,17 +149,20 @@
   font-weight: 800;
   letter-spacing: 0.13em;
   line-height: 1.2;
+  text-align: center;
   text-transform: uppercase;
 }
 
 .site-section-title {
   max-width: 37rem;
+  margin-inline: auto;
   color: #0f172a;
   font-family: inherit;
   font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 800;
   letter-spacing: -0.045em;
   line-height: 0.98;
+  text-align: center;
 }
 
 .site-section-title-inverse {
@@ -169,6 +172,7 @@
 .site-section-description {
   color: #64748b;
   line-height: 1.7;
+  text-align: center;
 }
 
 .business-features-section {
@@ -577,17 +581,19 @@
 }
 
 .rich-message-heading h2 {
-  max-width: 37rem;
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  font-weight: 800;
-  letter-spacing: -0.045em;
-  line-height: 0.98;
+  margin-inline: 0;
+  text-align: left;
 }
 
 .rich-message-heading p {
   color: #64748b;
   font-size: 1rem;
   line-height: 1.7;
+  text-align: left;
+}
+
+.rich-message-heading > div > .site-section-kicker {
+  text-align: left;
 }
 
 .rich-message-viewport {

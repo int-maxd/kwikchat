@@ -211,7 +211,7 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto flex flex-col lg:flex-row items-center gap-12">
               <div className="flex-1 text-center lg:text-left">
-                <p className="text-green-600 font-semibold mb-3 uppercase tracking-wide text-sm">See it in action</p>
+                <p className="site-section-kicker">See it in action</p>
                 <h2 className="site-section-title mb-4">Watch automation work in real time</h2>
                 <p className="site-section-description text-gray-600 text-lg mb-6">
                   A customer reaches out. Your kwikChat bot handles it instantly: no waiting, no manual replies, no missed leads.

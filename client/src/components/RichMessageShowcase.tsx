@@ -476,7 +476,7 @@ export function RichMessageShowcase() {
         <div className="container mx-auto px-4">
           <div className="rich-message-heading">
             <div>
-              <span>Built for WhatsApp</span>
+              <span className="site-section-kicker">Built for WhatsApp</span>
               <h2 id="rich-message-title" className="site-section-title">Every message can do more</h2>
             </div>
             <p>
